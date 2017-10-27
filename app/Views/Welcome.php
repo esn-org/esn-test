@@ -43,7 +43,7 @@ class Welcome {
           <li>Returns an <code>Array</code> with all the sections of a certain country.</li>
         </ul>
       </div>
-      <div>When is finished declare a new object of that class in the file index.php</div>
+      <div class="hints alert alert-primary">When is finished declare a new object of that class in the file <code>index.php</code></div>
       <div class="task">The API documentation <a href="https://api.esn.org/explorer/" title="API Documentation" target="_blank">can be found here</a>. There, you will find all the available GET requests, and you can try the API as well.</div>
       <div class="hints alert alert-secondary" role="alert">One example of the filter you can use in the API documentation is <code>{"where":{"code":"BE"}}</code>. This is the notation for the filters.</div>
     </div>
@@ -55,6 +55,7 @@ class Welcome {
           <li>Return the basic structure of an accordion, using <code>collapse</code> and <code>card</code> components of Bootstrap. 3 or 4 group items are fine, and a couple of "Lorem Ipsum" lines inside each tab is enough.</li>
         </ul>
       </div>
+      <div class="hints alert alert-primary" role="alert">Edit the file <code>index.php</code> to declare there an object of your new View class and include the output in the designated area.</div>
       <div class="hints alert alert-secondary" role="alert">The version installed is Bootstrap 4.0.0-beta.2. Check its documentation for the behaviour of both components and examples.</div>
     </div>
     <div class="tasks_group">
@@ -68,6 +69,7 @@ class Welcome {
           <li>All the panes may be closed at the beginning.</li>
         </ul>
       </div>
+      <div class="hints alert alert-primary" role="alert">Edit the file <code>index.php</code> to put the output of the view in the designated area.</div>
       <div class="task">The output may be similar to the next image</div>
       <div class="task" id="exampleAccordion" data-children=".item">
         <div class="item">
