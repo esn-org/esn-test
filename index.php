@@ -9,7 +9,7 @@ use \app\Views\Welcome;
 
 //Your code here...
 
-//Let's do some coding here needed for hte explanations
+//Let's do some coding here needed for the explanations
 //We load the Welcome view class, and populate some data for the views
 $welcome = new Welcome();
 $outputT3 = [
@@ -61,7 +61,7 @@ $outputT4 = [
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
-            <?
+            <?php
               echo $welcome->output();
             ?>
           </div>
@@ -72,7 +72,7 @@ $outputT4 = [
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div class="solution_header mt-3">Solution to Task 3</div>
-            <?
+            <?php
               //Here goes the function with the output for Task 3
               echo $welcome->tmp($outputT3);
             ?>
@@ -84,7 +84,7 @@ $outputT4 = [
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div class="solution_header mt-3">Solution to Task 4</div>
-            <?
+            <?php
               //Here goes the function with the output for Task 4
               echo $welcome->tmp($outputT4);
             ?>
