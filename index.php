@@ -4,8 +4,13 @@ require "./autoload.php";
 
 //We have to define which classes are we going to use
 use \app\Views\Welcome;
+use \app\Views\Accordion;
+use app\Controllers\controllerApiExtended;
 
 //Declare here the classes you have created and may need to use:
+
+$controller = new app\Controllers\controllerApiExtended();
+$accordions = new app\Views\Accordion();
 
 //Your code here...
 
@@ -74,7 +79,7 @@ $outputT4 = [
             <div class="solution_header mt-3">Solution to Task 3</div>
             <?php
               //Here goes the function with the output for Task 3
-              echo $welcome->tmp($outputT3);
+              echo $accordions->generate_accordion_n_tabs(4);
             ?>
           </div>
         </div>
