@@ -10,7 +10,8 @@ use app\Controllers\controllerApiExtended;
 //Declare here the classes you have created and may need to use:
 
 $controller = new app\Controllers\controllerApiExtended();
-$accordion = new app\Views\Accordion();
+$accordionTask3 = new app\Views\Accordion("task3");
+$accordionTask4 = new app\Views\Accordion("task4");
 
 //Your code here...
 
@@ -53,8 +54,6 @@ foreach ($esnCountries as $esnCountry){
     
     array_push($accordionData, $tab);
 }
- 
-
 //----------------------------------------
 //... and more code here
 
@@ -103,7 +102,7 @@ foreach ($esnCountries as $esnCountry){
             <div class="solution_header mt-3">Solution to Task 3</div>
             <?php
               //Here goes the function with the output for Task 3
-              echo $accordion->generate_accordion_n_tabs(4);
+              echo $accordionTask3->output($accordionTask3->generate_accordion_n_tabs(4));
             ?>
           </div>
         </div>
@@ -115,7 +114,7 @@ foreach ($esnCountries as $esnCountry){
             <div class="solution_header mt-3">Solution to Task 4</div>
             <?php
               //Here goes the function with the output for Task 4
-              echo $accordion->generate_accordion_countries($accordionData);
+              echo $accordionTask4->output($accordionTask4->generate_accordion_countries($accordionData));
             ?>
           </div>
         </div>
