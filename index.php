@@ -37,21 +37,23 @@ $accordionData = array();
 $esnCountries = $controller->get_all_esn_countries();
 foreach ($esnCountries as $esnCountry){
     $tab = array("title"=>"","text"=>""); //tab to be filled
+    
+    //fill the text value with a string made up of all the sections
     $sections = $controller->get_sections_of_country($esnCountry['code']);
     foreach($sections as $section){
         $tab['text'].=$section['name'].' ('.$section['code'].')<br>';
     }
+    
+    //fill the title value 
     $N_sec = count($sections);
-    $tab['title'] = $esnCountry['name'].' ('.$N_sec.' sections)<br>';
+    $flagCode = strtolower($esnCountry['code']);
+    if ($flagCode == "yu") $flagCode = "rs" ; // THIS FLAG CODE IS WRONG!?!?
+    $flag = '<span class="flag-icon flag-icon-'.$flagCode.'"></span>';
+    $tab['title'] = $flag.' '.$esnCountry['name'].' ('.$N_sec.' sections)<br>';
     
     array_push($accordionData, $tab);
 }
  
-
-
-
-
-
 
 //----------------------------------------
 //... and more code here
