@@ -57,12 +57,28 @@ class Accordion {
      *    and a couple of "Lorem Ipsum" lines inside each tab is enough
     */
 
-  public function generate_accordion_n_tabs($nTabs){
-    $this->html = '';
-    $loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur';
-    for ($i = 1 ; $i<=$nTabs; $i++){
-        $this->add_tab('Tab #'.$i, $loremIpsum);
+    public function generate_accordion_n_tabs($nTabs){
+      $this->html = '';
+      $loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur';
+      for ($i = 1 ; $i<=$nTabs; $i++){
+          $this->add_tab('Tab #'.$i, $loremIpsum);
+      }
+      return $this->html;
     }
-    return $this->html;
-  }
+    
+    
+    
+    
+    /**
+     * 
+     * @param type $data
+     * @return type
+     */
+    public function generate_accordion_countries($data){
+        $this->html = '';
+        foreach ($data as $entry){
+           $this->add_tab($entry['title'], $entry['text']); 
+        }
+        return $this->html;
+    }
 }

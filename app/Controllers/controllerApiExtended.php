@@ -13,7 +13,7 @@
 
 namespace app\Controllers;
 
-use app\Controllers\controllerApi; //not needed because of autoload?
+use app\Controllers\controllerApi;
 
 
 class controllerApiExtended extends controllerApi {
@@ -28,9 +28,9 @@ class controllerApiExtended extends controllerApi {
      * @param $key
      *  Key whose value we want to append
      * 
-    * @return 
-    *   Array with all the appended values
-    */
+     * @return 
+     *   Array with all the appended values
+     */
     
     private function json_to_array_by_key($JSONstring, $key){
       //(Any optimized function or filter to obtain 
@@ -60,14 +60,14 @@ class controllerApiExtended extends controllerApi {
 
   public function get_all_esn_countries(){
       
-      // get all countries
-      $stringCountries = parent::get_request('countries'); 
-      // append values where the key="name"
-      $namesArray = $this->json_to_array_by_key($stringCountries, "name");
-      
-      return $namesArray;
+    // get all countries
+    $stringCountries = parent::get_request('countries'); 
+
+    //transform JSON to associative array
+    $assocArray = json_decode($stringCountries, true);
+
+    return $assocArray;
   }   
-  
   
   
   
@@ -86,10 +86,11 @@ class controllerApiExtended extends controllerApi {
       // get all sections whose countryId is $countryId
       $filter = ['where' =>['countryId' => $countryId]];
       $stringSections = parent::get_request('sections',$filter);
-      // append values where the key="name"
-      $namesArray = $this->json_to_array_by_key($stringSections, "name");
+
+      //transform JSON to associative array
+      $assocArray = json_decode($stringSections, true);
       
-      return $namesArray;
+      return $assocArray;
     
   }  
 }

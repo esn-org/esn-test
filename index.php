@@ -10,7 +10,7 @@ use app\Controllers\controllerApiExtended;
 //Declare here the classes you have created and may need to use:
 
 $controller = new app\Controllers\controllerApiExtended();
-$accordions = new app\Views\Accordion();
+$accordion = new app\Views\Accordion();
 
 //Your code here...
 
@@ -31,7 +31,29 @@ $outputT4 = [
 //Now is your turn to code something
 //Your main code must be done here:
 
+//----------------------------------------
+//Prepare data for de Accordion View:
+$accordionData = array();
+$esnCountries = $controller->get_all_esn_countries();
+foreach ($esnCountries as $esnCountry){
+    $tab = array("title"=>"","text"=>""); //tab to be filled
+    $sections = $controller->get_sections_of_country($esnCountry['code']);
+    foreach($sections as $section){
+        $tab['text'].=$section['name'].' ('.$section['code'].')<br>';
+    }
+    $N_sec = count($sections);
+    $tab['title'] = $esnCountry['name'].' ('.$N_sec.' sections)<br>';
+    
+    array_push($accordionData, $tab);
+}
+ 
 
+
+
+
+
+
+//----------------------------------------
 //... and more code here
 
 
@@ -79,7 +101,7 @@ $outputT4 = [
             <div class="solution_header mt-3">Solution to Task 3</div>
             <?php
               //Here goes the function with the output for Task 3
-              echo $accordions->generate_accordion_n_tabs(4);
+              echo $accordion->generate_accordion_n_tabs(4);
             ?>
           </div>
         </div>
@@ -91,7 +113,7 @@ $outputT4 = [
             <div class="solution_header mt-3">Solution to Task 4</div>
             <?php
               //Here goes the function with the output for Task 4
-              echo $welcome->tmp($outputT4);
+              echo $accordion->generate_accordion_countries($accordionData);
             ?>
           </div>
         </div>
