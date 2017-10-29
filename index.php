@@ -4,12 +4,17 @@ require "./autoload.php";
 
 //We have to define which classes are we going to use
 use \app\Views\Welcome;
+use \app\Views\Accordion;
+use app\Controllers\controllerApiExtended;
 
 //Declare here the classes you have created and may need to use:
 
+$controller = new app\Controllers\controllerApiExtended();
+$accordion = new app\Views\Accordion();
+
 //Your code here...
 
-//Let's do some coding here needed for hte explanations
+//Let's do some coding here needed for the explanations
 //We load the Welcome view class, and populate some data for the views
 $welcome = new Welcome();
 $outputT3 = [
@@ -26,7 +31,31 @@ $outputT4 = [
 //Now is your turn to code something
 //Your main code must be done here:
 
+//----------------------------------------
+//Prepare data for de Accordion View:
+$accordionData = array();
+$esnCountries = $controller->get_all_esn_countries();
+foreach ($esnCountries as $esnCountry){
+    $tab = array("title"=>"","text"=>""); //tab to be filled
+    
+    //fill the text value with a string made up of all the sections
+    $sections = $controller->get_sections_of_country($esnCountry['code']);
+    foreach($sections as $section){
+        $tab['text'].=$section['name'].' ('.$section['code'].')<br>';
+    }
+    
+    //fill the title value 
+    $N_sec = count($sections);
+    $flagCode = strtolower($esnCountry['code']);
+    if ($flagCode == "yu") $flagCode = "rs" ; // THIS FLAG CODE IS WRONG!?!?
+    $flag = '<span class="flag-icon flag-icon-'.$flagCode.'"></span>';
+    $tab['title'] = $flag.' '.$esnCountry['name'].' ('.$N_sec.' sections)<br>';
+    
+    array_push($accordionData, $tab);
+}
+ 
 
+//----------------------------------------
 //... and more code here
 
 
@@ -61,7 +90,7 @@ $outputT4 = [
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
-            <?
+            <?php
               echo $welcome->output();
             ?>
           </div>
@@ -72,9 +101,9 @@ $outputT4 = [
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div class="solution_header mt-3">Solution to Task 3</div>
-            <?
+            <?php
               //Here goes the function with the output for Task 3
-              echo $welcome->tmp($outputT3);
+              echo $accordion->generate_accordion_n_tabs(4);
             ?>
           </div>
         </div>
@@ -84,9 +113,9 @@ $outputT4 = [
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div class="solution_header mt-3">Solution to Task 4</div>
-            <?
+            <?php
               //Here goes the function with the output for Task 4
-              echo $welcome->tmp($outputT4);
+              echo $accordion->generate_accordion_countries($accordionData);
             ?>
           </div>
         </div>
