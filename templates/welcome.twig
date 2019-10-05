@@ -1,0 +1,73 @@
+{% block welcome %}
+  <h1 class="mt-3">Welcome to this simple PHP skill test</h1>
+  <div class="lead">Let's code a little bit</div>
+  <div class="lead">There are a couple of tasks in this small test. We want to display here the following information:</div>
+
+  <div class="tasks_group">
+    <div class="task_header">Task 1</div>
+    <div class="task">If you see this page, then you have succeeded the first task. You can proceed with the next tasks.</div>
+  </div>
+
+  <div class="hints alert alert-warning" role="alert">Important: the results are displayed at the end of this page (when refreshing), each time the results are saved. Keep in mind this if your environment caches the HTML</div>
+  <div class="hints alert alert-success" role="alert">Following coding standars (Drupal or similar) will be highly valued, as well cleaninness of the code and number of lines used.</div>
+
+  <div class="tasks_group">
+    <div class="task_header">Task 2</div>
+    <div class="task">The content of the file <code>templates/card.twig</code> is empty but should have a card implemented.</div>
+    <div class="task">The task is to write in the file, at least one element <code>card</code> from the bootstrap library, following the next requirements:
+      <ul>
+        <li>The card must have an image (you can use a placeholder) that fits the full width of the card.</li>
+        <li>The card must have a footer with some text and in a different color.</li>
+      </ul>
+    </div>
+    <div class="hints alert alert-secondary" role="alert"><a href="https://getbootstrap.com/" target="_blank" title="flag-icon-css github page">Bootstrap</a> version available is 4.3.</div>
+  </div>
+
+  <div class="tasks_group">
+    <div class="task_header">Task 3</div>
+    <div class="task">There is a file called <code>testController.php</code> that needs to be finished.</div>
+    <div class="task">We need, at least, the following functions inside that class:
+      <ul>
+        <li>A function returning an array with all the countries where ESN has a national level.</li>
+        <li>A function returning an array with all the sections that belongs to ESN.</li>
+        <li>If needed, extra functions can be used.</li>
+      </ul>
+    </div>
+    <div class="hints alert alert-primary" role="alert">Reading the code available in <code>src/</code> can help for this task. The API has available some endpoints. Inside the code of this test you will find all the documentation needed for this test. The API is accessible via browser as well if the url and the endpoints are written.</div>
+  </div>
+
+  <div class="tasks_group">
+    <div class="task_header">Task 4</div>
+    <div class="task">The previous file, as you may have seen, extends an existing class that has a render function. You need to overwrite that function to generate some html code for this task.</div>
+    <div class="task"><strong>The function must return a string containing the final HTML.</strong></div>
+    <div class="task">The desired html for this task is a bootstrap <code>accordion</code> following this requirements:</div>
+    <div class="task">The accordion may have:
+      <ul>
+        <li>This accordion must contain one ESN country per group item (header) and inside the panel of this group item, each of the sections belonging to this country.</li>
+        <li>In the header it must appear the flag and name of the country and the number of the sections belonging to it (design of the items up to the user)</li>
+        <li>The list of ESN sections that belongs to that country, inside the panel.</li>
+        <li>If the section has a website, .</li>
+        <li>All the panes must be collapsibles.</li>
+        <li>All the panes may be closed at the beginning.</li>
+        <li><strong>Extra:</strong> If the section have a website, show it by using the proper font-awesome icon and opening it in a new page.</li>
+        <li><strong>Extra:</strong> Sort the list by country name.</li>
+      </ul>
+    </div>
+    <div class="hints alert alert-primary" role="alert"><a href="https://github.com/lipis/flag-icon-css" target="_blank" title="flag-icon-css github page">Flag-icon-css</a> and <a href="https://fontawesome.com/" target="_blank" title="flag-icon-css github page">fontawesome</a> libraries are already installed. Documentation about those libraries can be foind in their respective pages.</div>
+    <div class="task"><strong>The next image can be used as a reference for the output.</strong></div>
+    <div class="task" id="exampleAccordion" data-children=".item">
+      <div class="item">
+        <a data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion1" aria-expanded="true" aria-controls="exampleAccordion1">
+          Show Image
+        </a>
+        <div id="exampleAccordion1" class="collapse" role="tabpanel">
+          <img src="./assets/img/task_1.png" alt="task1 example" class="img-fluid"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tasks_group">
+    <div class="task_header">Task 5</div>
+    <div class="task">Do a <code>pull request</code> to our GitHub <i class="fab fa-github"></i> repository.</div>
+  </div>
+{% endblock %}

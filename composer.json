@@ -1,0 +1,21 @@
+{
+  "name": "esn/esn_test",
+  "description": "This is a simple test for our esners.",
+  "authors": [
+    {
+      "name": "Frank Anderson",
+      "email": "gorka.guerrero@esn.org"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.0",
+    "components/flag-icon-css": "^3.4",
+    "twig/twig": "3.x-dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "EsnTest\\": "src/"
+    }
+  }
+}

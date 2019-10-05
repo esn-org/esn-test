@@ -1,9 +1,7 @@
-# Simple ESNtest for PHP knowledge
+# Simple ESNtest for future Web Developers or for playing a bit
 
-The purpose of this repository is to have some simple test with some tasks for the candidates to prove their PHP and HTML knowledge.
-The description of the tasks can be found in [this website](http://ares.esn.org/~gorkaguerrero/testdevs/), this repository only have the source code of all the files and is also part of the tasks.
-If you want to test yourself, you can try to do the tasks as well. And feedback is welcomed too :) 
+The purpose of this repository is to have some simple test with some tasks for
+the candidates to prove their knowledge.
+If you want to test it, just clone this repo.
 
-Website with instructions:
-[`http://ares.esn.org/~gorkaguerrero/testdevs/`](http://ares.esn.org/~gorkaguerrero/testdevs/)
-
+The index file has all the details once the project has been initialised.
