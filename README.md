@@ -4,4 +4,4 @@ The purpose of this repository is to have some simple test with some tasks for
 the candidates to prove their knowledge.
 If you want to test it, just clone this repo.
 
-The index file has all the details once the project has been initialised.
+Once the project is cloned and initialized, loading the index page in your browser will reveal the rest of the instructions.
