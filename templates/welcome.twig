@@ -8,9 +8,6 @@
     <div class="task">If you see this page, then you have succeeded the first task. You can proceed with the next tasks.</div>
   </div>
 
-  <div class="hints alert alert-warning" role="alert">Important: the results are displayed at the end of this page (when refreshing), each time the results are saved. Keep in mind this if your environment caches the HTML</div>
-  <div class="hints alert alert-success" role="alert">Following coding standars (Drupal or similar) will be highly valued, as well cleaninness of the code and number of lines used.</div>
-
   <div class="tasks_group">
     <div class="task_header">Task 2</div>
     <div class="task">The content of the file <code>templates/card.twig</code> is empty but should have a card implemented.</div>
@@ -21,39 +18,43 @@
       </ul>
     </div>
     <div class="hints alert alert-secondary" role="alert"><a href="https://getbootstrap.com/" target="_blank" title="flag-icon-css github page">Bootstrap</a> version available is 4.3.</div>
+    <div class="hints alert alert-warning" role="alert">The result of this task will be loaded automatically at the end of this page, under the area labeled 'Solution to task 2', the moment you save the card.twig file and you reload this page. If the result does not appear automatically, check the cache of the browser or use an anonymous session</div>
   </div>
 
   <div class="tasks_group">
     <div class="task_header">Task 3</div>
-    <div class="task">There is a file called <code>testController.php</code> that needs to be finished.</div>
+    <div class="task">The file <code>src/testController.php</code> needs to be finished.</div>
+    <div class="task">That file extends a controller that fetches information from our API (once an endpoint has been provided) and returns some data in JSON format.</div>
     <div class="task">We need, at least, the following functions inside that class:
       <ul>
-        <li>A function returning an array with all the countries where ESN has a national level.</li>
-        <li>A function returning an array with all the sections that belongs to ESN.</li>
+        <li>A function returning an array with all the countries where ESN has a national level from the API.</li>
+        <li>A function returning an array with all the sections that belongs to ESN from the API.</li>
         <li>If needed, extra functions can be used.</li>
       </ul>
     </div>
-    <div class="hints alert alert-primary" role="alert">Reading the code available in <code>src/</code> can help for this task. The API has available some endpoints. Inside the code of this test you will find all the documentation needed for this test. The API is accessible via browser as well if the url and the endpoints are written.</div>
+    <div class="hints alert alert-primary" role="alert">All the documentation for this task is available in the folder <code>src/Controller</code>, where you can take a look to the available code, documentation, functions description, etc. The API used internally in the controller (URL including the endpoint) can be accessible through any browser and will display the JSON data as well in the browser.</div>
+    <div class="hints alert alert-success" role="alert">Following coding standars (Drupal in this case) will be highly valued, as well cleaninness of the code and number of lines used.</div>
   </div>
 
   <div class="tasks_group">
     <div class="task_header">Task 4</div>
-    <div class="task">The previous file, as you may have seen, extends an existing class that has a render function. You need to overwrite that function to generate some html code for this task.</div>
-    <div class="task"><strong>The function must return a string containing the final HTML.</strong></div>
-    <div class="task">The desired html for this task is a bootstrap <code>accordion</code> following this requirements:</div>
-    <div class="task">The accordion may have:
+    <div class="task">The previous file, as you may have seen, extends an existing class that has a render function. You need to overwrite that function to generate some html code for this task with the data you have obtained in the previous task.</div>
+    <div class="task"><strong>The render() function must return a string containing the final html.</strong></div>
+    <div class="task">The desired html for this task is a bootstrap <code>accordion</code> following this requirements:
       <ul>
-        <li>This accordion must contain one ESN country per group item (header) and inside the panel of this group item, each of the sections belonging to this country.</li>
-        <li>In the header it must appear the flag and name of the country and the number of the sections belonging to it (design of the items up to the user)</li>
-        <li>The list of ESN sections that belongs to that country, inside the panel.</li>
+        <li>This accordion must contain one ESN country per group item (header) and inside the panel of this group item, all of the sections belonging to this country.</li>
+        <li>In the header it must appear the flag and name of the country and the number of the sections belonging to it (leaving the style of this up to the user)</li>
+        <li>The list of ESN sections that belongs to that country needs to be placed inside the panel.</li>
         <li>All the panes must be collapsibles.</li>
-        <li>All the panes may be closed at the beginning.</li>
+        <li>All the panes must stay closed the moment the accordion is firstly rendered.</li>
         <li><strong>Extra:</strong> If the section have a website, show it by using the proper font-awesome icon and opening it in a new page just after the code.</li>
-        <li><strong>Extra:</strong> Sort the list by country name.</li>
+        <li><strong>Extra:</strong> Sort the list by country name and/or by section name too.</li>
       </ul>
     </div>
-    <div class="hints alert alert-primary" role="alert"><a href="https://github.com/lipis/flag-icon-css" target="_blank" title="flag-icon-css github page">Flag-icon-css</a> and <a href="https://fontawesome.com/" target="_blank" title="flag-icon-css github page">fontawesome</a> libraries are already installed. Documentation about those libraries can be foind in their respective pages.</div>
-    <div class="task"><strong>The next image can be used as a reference for the output.</strong></div>
+    <div class="hints alert alert-primary" role="alert"><a href="https://github.com/lipis/flag-icon-css" target="_blank" title="flag-icon-css github page">Flag-icon-css</a> and <a href="https://fontawesome.com/" target="_blank" title="flag-icon-css github page">fontawesome</a> libraries are already installed and loaded automatically, you don't need to include them in the composer file. Documentation about those libraries can be found in their respective pages.</div>
+    <div class="hints alert alert-success" role="alert">Following coding standars (Drupal in this case) will be highly valued, as well cleaninness of the code and number of lines used.</div>
+    <div class="hints alert alert-warning" role="alert">The result of this task will be loaded automatically at the end of this page, under the area labeled 'Solution to task 4', the moment you save the testController.php file and you reload this page. If the result does not appear automatically, check the cache of the browser or use an anonymous session</div>
+    <div class="task"><strong>The next image can be used as a reference for the output with one panel opened (it does not include the extra tasks).</strong></div>
     <div class="task" id="exampleAccordion" data-children=".item">
       <div class="item">
         <a data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion1" aria-expanded="true" aria-controls="exampleAccordion1">

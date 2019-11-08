@@ -12,7 +12,7 @@ interface EsnFetcherInterface {
    *
    * @param string $endpoint
    *   The endpoint of the API we need the information from.
-   *   Valid endpoints: 'countries', 'sections'.
+   *   Available $endpoint values: 'countries', 'sections', 'cities'.
    *
    * @return string
    *   The response of the API call, in a JSON format.
