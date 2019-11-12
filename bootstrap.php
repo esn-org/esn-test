@@ -14,7 +14,7 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
   @require_once __DIR__ . '/vendor/autoload.php';
 }
 else {
-  echo 'It seems the vendor folder is missing. You need to run some command first.';
+  echo 'It seems the vendor folder is missing. Did you run composer first?.';
   die();
 }
 
