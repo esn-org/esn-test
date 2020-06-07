@@ -36,19 +36,6 @@
   #}
   {{ parent() }}
 
-  {# <div style="display: flex; margin-top: 10px;">
-  {% for item in data_t2|slice(-3) %}
-    <div class="card" style="width: 18rem; margin: 0 auto;">
-      <div class="card-body">
-        <h5 class="card-title">{{ item.title }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ item.date }}</h6>
-        <p class="card-text">{{ item.text|length > 50 ? item.text|striptags|slice(0, 350) ~ '...' : item.text }}</p>
-        <a href="#" class="card-link">{{ item.slug }}</a>
-      </div>
-    </div>
-  {% endfor %}
-  </div> #}
-
 {% endblock %}
 
 {# This is the block for the solution of task 3 #}
@@ -60,34 +47,5 @@
    */
   #}
   {{ parent() }}
-
-  {# {{ data_t4|raw }} #}
-
-  <div id="accordion" role="tablist">
-  {% if data_t4 %}
-    {% for item in data_t4 %}
-      <div class="card">
-        <div class="card-header" role="tab" id="heading_{{ item.cc }}">
-          <h5 class="mb-0">
-            <a data-toggle="collapse" href="#{{ item.cc }}" aria-expanded="true" aria-controls="{{ item.cc }}"><span class="flag-icon flag-icon-{{ item.cc|lower }}"></span>{{ item.label }} ({{ item.sections|length }} sections)</a>
-          </h5>
-        </div>
-        <div id="{{ item.cc }}" class="collapse" role="tabpanel" aria-labelledby="heading_{{ item.label }}" data-parent="#accordion">
-          <div class="card-body container">
-            <ul class="list-unstyled">
-              {% for section in item.sections %}
-                {% if section.web %}
-                  <li>{{ section.label }} ({{ section.code }}) <a href="{{ section.web }}" target="_blank"><i class="fas fa-external-link-alt"></i></a></li>
-                {% else %}
-                  <li>{{ section.label }} ({{ section.code }}) </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  {% endif %}
-  </div>
 
 {% endblock %}
