@@ -12,7 +12,7 @@ interface EsnFetcherInterface {
    *
    * @param string $endpoint
    *   The endpoint of the API we need the information from.
-   *   Available $endpoint values: 'countries', 'sections', 'cities'.
+   *   Available $endpoint values: 'countries', 'sections'.
    *
    * @return string
    *   The response of the API call, in a JSON format.
@@ -20,11 +20,18 @@ interface EsnFetcherInterface {
   public function getRequest($endpoint);
 
   /**
-   * Renders the data from the API request.
+   * Performs a request to fetch news.
    *
    * @return string
-   *   The HTML for the view.
+   *   The response of the API call, in a JSON format.
    */
-  public function render();
+  public function getNews();
 
+  /**
+   * Counts the number of articles fetched.
+   *
+   * @return int
+   *   The number of articles fetched.
+   */
+  public function countNews();
 }

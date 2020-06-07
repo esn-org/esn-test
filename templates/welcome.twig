@@ -1,74 +1,118 @@
+{% extends 'index.twig' %}
+
 {% block welcome %}
   <h1 class="mt-3">Welcome to this simple PHP skill test</h1>
-  <div class="lead">Let's code a little bit</div>
-  <div class="lead">There are a couple of tasks in this small test. We want to display here the following information:</div>
+  <br>
+  <div class="lead">There are a couple of tasks in this small test. What you have to do:</div>
 
-  <div class="tasks_group">
-    <div class="task_header">Task 1</div>
-    <div class="task">If you see this page, then you have succeeded the first task. You can proceed with the next tasks.</div>
-  </div>
-
-  <div class="tasks_group">
-    <div class="task_header">Task 2</div>
-    <div class="task">The content of the file <code>templates/card.twig</code> is empty but should have a card implemented.</div>
-    <div class="task">The task is to write in the file, at least one element <code>card</code> from the bootstrap library, following the next requirements:
-      <ul>
-        <li>The card must have an image (you can use a placeholder, no need to upload any image) that fits the full width of the card.</li>
-        <li>The card must have a footer with some text and in a different color.</li>
-        <li>You can add any other element to the card.</li>
-      </ul>
+  <div class="tasks_container">
+    <div class="tasks_group">
+      <div class="task_header">Task 1</div>
+      <div class="task">If you see this page, then you have succeeded the first task. You can proceed now with the next tasks but before continuing, please take a look to what is included in this page and to the following advices:</div>
+    
+      <div class="hints alert alert-primary" role="alert">
+        The following libraries are already installed and ready-to-use. Information about them can be found in their respective websites:
+        <ul>
+          <li><a href="https://getbootstrap.com/" target="_blank" title="bootstrap page">Bootstrap</a> (version 4.5),</li>
+          <li><a href="https://jquery.com" target="_blank" title="bootstrap page">jQuery</a> (version 3.5.1 slim),</li>
+          <li><a href="https://twig.symfony.com/" target="_blank" title="twig page">Twig</a> (version 3.0.3) with the debug enabled and the dump() function available,</li>
+          <li><a href="https://github.com/lipis/flag-icon-css" target="_blank" title="flag-icon-css github page">Flag-icon-css</a> (version 3.4.6),</li>
+          <li><a href="https://fontawesome.com/" target="_blank" title="fontwawesome page">Fontawesome</a> (version 5.11.2).</li>
+        </ul>
+      </div>
+      <div class="hints alert alert-success" role="alert">Read the description of each task carefully, as might contain some clues or guidance for finishing the task.</div>
+      <div class="hints alert alert-success" role="alert">Following coding standars (PHP or even Drupal ones) will be highly valued, as well readability and cleaninness of the code and number of lines used.</div>
+      <div class="hints alert alert-success" role="alert">The result of each task will be displayed right after the task description and before the next one. Cache is disabled, so the output should appear automatically each time the page is refreshed.</div>
+      <div class="hints alert alert-success" role="alert">In order to finish the task, the <strong>main</strong> goal is required. Finishing the optional subtasks are not mandatory but recommended.</div>
     </div>
-    <div class="hints alert alert-secondary" role="alert"><a href="https://getbootstrap.com/" target="_blank" title="flag-icon-css github page">Bootstrap</a> version available is 4.3.</div>
-    <div class="hints alert alert-warning" role="alert">The result of this task will be loaded automatically at the end of this page, under the area labeled 'Solution to task 2', the moment you save the card.twig file and you reload this page. If the result does not appear automatically, check the cache of the browser or use an anonymous session</div>
-  </div>
 
-  <div class="tasks_group">
-    <div class="task_header">Task 3</div>
-    <div class="task">The file <code>src/testController.php</code> needs to be finished.</div>
-    <div class="task">That file extends a controller that fetches information from our API (once an endpoint has been provided) and returns some data in JSON format.</div>
-    <div class="task">We need, at least, the following functions inside that class:
-      <ul>
-        <li>A function returning an array with all the countries where ESN has a national level from the API.</li>
-        <li>A function returning an array with all the sections that belongs to ESN from the API.</li>
-        <li>If needed, extra functions can be used.</li>
-      </ul>
-    </div>
-    <div class="hints alert alert-primary" role="alert">All the documentation for this task is available in the folder <code>src/Controller</code>, where you can take a look to the available code, documentation, functions description, etc. The API used internally in the controller (URL including the endpoint) can be accessible through any browser and will display the JSON data as well in the browser.</div>
-    <div class="hints alert alert-success" role="alert">Following coding standars (Drupal in this case) will be highly valued, as well cleaninness of the code and number of lines used.</div>
-  </div>
+    <hr class="separation">
+    
+    <div class="tasks_group">
+      <div class="task_header">Task 2</div>
+      <div class="task">Inside the file <code>templates/blocks_solution.twig</code>, the block <code>solution_news</code> is empty right now but you need to write it for solving this task.</div>
+      <div class="task">All the data needed for this task is already available in the twig file, you just need to render it on the format we are requesting.</div>
+      <div class="task"><strong>The main tasks are:</strong>
+        <ul>
+          <li>Using the bootstrap <strong>Card component</strong>, render a previsualisation of the last three articles available from the list.</li>
+          <li>The three articles need to appear horizontaly render, one next to the other, and with the proper separation.</li>
+          <li>The previsualisation must contain one of the images, followed by the title, the date, the first 250 chars of the article followed by '...' (or just the full article if the lenght is less), and a 'Go to the article' link (use '#' instead of a real URL).</li>
+          <li>If extra css is needed, please use the inline 'style' html property. We leave the design up to you.</li>
+        </ul>
+      </div>
+      <div class="task"><em>The optional subtasks are:</em>
+        <ul>
+          <li>If there is no image, show instead a placeholder from <a href="https://placeholder.com/" target="_blank">placeholder.com</a>.</li>
+        </ul>
+      </div>     
 
-  <div class="tasks_group">
-    <div class="task_header">Task 4</div>
-    <div class="task">The previous file, as you may have seen, extends an existing class that has a render function. You need to overwrite that function to generate some html code for this task with the data you have obtained in the previous task.</div>
-    <div class="task"><strong>The render() function must return a string containing the final html.</strong></div>
-    <div class="task">The desired html for this task is a bootstrap <code>accordion</code> following this requirements:
-      <ul>
-        <li>This accordion must contain one ESN country per group item (header) and inside the panel of this group item, all of the sections belonging to this country.</li>
-        <li>In the header it must appear the flag and name of the country and the number of the sections belonging to it (leaving the style of this up to the user)</li>
-        <li>The list of ESN sections that belongs to that country needs to be placed inside the panel.</li>
-        <li>All the panes must be collapsibles.</li>
-        <li>All the panes must stay closed the moment the accordion is firstly rendered.</li>
-        <li><strong>Extra:</strong> If the section have a website, show it by using the proper font-awesome icon and opening it in a new page just after the code.</li>
-        <li><strong>Extra:</strong> Sort the list by country name and/or by section name too.</li>
-      </ul>
-    </div>
-    <div class="hints alert alert-primary" role="alert"><a href="https://github.com/lipis/flag-icon-css" target="_blank" title="flag-icon-css github page">Flag-icon-css</a> and <a href="https://fontawesome.com/" target="_blank" title="flag-icon-css github page">fontawesome</a> libraries are already installed and loaded automatically, you don't need to include them in the composer file. Documentation about those libraries can be found in their respective pages.</div>
-    <div class="hints alert alert-success" role="alert">Following coding standars (Drupal in this case) will be highly valued, as well cleaninness of the code and number of lines used.</div>
-    <div class="hints alert alert-warning" role="alert">The result of this task will be loaded automatically at the end of this page, under the area labeled 'Solution to task 4', the moment you save the testController.php file and you reload this page. If the result does not appear automatically, check the cache of the browser or use an anonymous session</div>
-    <div class="task"><strong>The next image can be used as a reference for the output with one panel opened (it does not include the extra tasks).</strong></div>
-    <div class="task" id="exampleAccordion" data-children=".item">
-      <div class="item">
-        <a data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion1" aria-expanded="true" aria-controls="exampleAccordion1">
-          Show Image
-        </a>
-        <div id="exampleAccordion1" class="collapse" role="tabpanel">
-          <img src="./assets/img/task_1.png" alt="task1 example" class="img-fluid"/>
-        </div>
+      <div class="solution_container">
+        <div class="solution_header">Solution to Task 2</div>
+        {% block solution_news %}
+          {% if num_articles == 0 %}
+            <div><em>It seems there is an error and no articles have been fetched.</em></div>
+          {% else %}
+            <div><em>There are {{ num_articles }} fetched and you can proceed with the task.</em></div>
+          {% endif %}
+        {% endblock %}
       </div>
     </div>
-  </div>
-  <div class="tasks_group">
-    <div class="task_header">Task 5</div>
-    <div class="task">Do a <code>pull request</code> to our GitHub <i class="fab fa-github"></i> repository.</div>
+
+    <hr class="separation">
+    
+    <div class="tasks_group">
+      <div class="task_header">Task 3</div>
+      <div class="task">The class file <code>src/TestController.php</code> needs to be finished.</div>
+      <div class="task">As you can see, that class extends an existing class, but is almost empty except for a function that returns, for now, an empty array.</div>
+      <div class="task">The extended class is in charge of fetching information belonging to ESN (countries, sections, etc.) from an API (but is a bit messy), and we want to show this information in a nice way by using again <strong>Card component</strong> and extending its behaviour to cheate and accordion, as Bootstrap offers.</div>
+      <div class="task"><em>This accordion must contain one ESN country per group item (header) and inside the panel of this group item, all of the sections belonging to this country. In the header it must appear the flag and name of the country and the number of the sections belonging to it (leaving the style of this up to the user). The list of ESN sections that belongs to that country needs to be placed inside the panel. All the panes must be collapsibles and must stay closed the moment the accordion is firstly rendered.</em></div>
+      <div class="task"><strong>The main tasks are:</strong>
+        <ul>
+          <li>To complete the <code>getData()</code> function, returning what is needed to build the required accordion.</li>
+          <li>To finish the <code>solution_accordion</code> twig block in the file <code>templates/block_solutions.twig</code> using the returned value of the previous functions in the format of the mentioned accordion.</li>
+          <li>There are multiple solutions to this approach, use the one that is easier for you.</li>
+        </ul>
+      </div>
+      <div class="task"><em>The optional subtasks are:</em>
+        <ul>
+          <li>If the section have a website, show it by using the proper font-awesome icon and opening it in a new page just after the code.</li>
+          <li>Sort the list by country name and/or by section name too.</li>
+        </ul>
+      </div>
+
+      <div class="hints alert alert-primary" role="alert">
+        <div>Some hints:</div>
+        <ul>
+          <li>You can create in your class as much as functions as wanted.</li>
+          <li>The twig file loads automatically the variable, the documentation inside that file can be useful.</li>
+          <li>The other files inside <code>src/Controller</code> are already documented. Taking a look to them can be usefull.</li>
+        </ul>
+      </div>
+      <div class="task"><strong>The next image can be used as a reference for the output with one panel opened (it does not include the extra tasks).</strong></div>
+      <div class="task" id="exampleAccordion" data-children=".item">
+        <div class="item">
+          <a data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion1" aria-expanded="true" aria-controls="exampleAccordion1">
+            Show Image
+          </a>
+          <div id="exampleAccordion1" class="collapse" role="tabpanel">
+            <img src="./assets/img/task_1.png" alt="task1 example" class="img-fluid"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution_container">
+        <div class="solution_header">Solution to Task 3</div>
+        {% block solution_accordion %}
+          <div><em>The solution will appear here once the proper file is written.</em></div>
+        {% endblock %}
+      </div>
+    </div>
+
+    <hr class="separation">
+
+    <div class="tasks_group">
+      <div class="task_header">Task 4</div>
+      <div class="task">Do a <code>pull request</code> to our GitHub <i class="fab fa-github"></i> repository.</div>
+    </div>
   </div>
 {% endblock %}

@@ -33,11 +33,16 @@ class EsnFetcher implements EsnFetcherInterface {
   /**
    * {@inheritdoc}
    */
-  public function render() {
-    $html  = '<div>You need to overwrite this output in your class file with your own render().</div>';
-    $html .= '<div class="hints alert alert-success" role="alert">Random fact: Manneken Pis is a famous statue and one of the most famous landmarks in Brussels which is only 61 cm tall.</div>';
-
-    return $html;
+  public function getNews() {
+    $resp = $this->esnApi->apiGetNews();
+    return json_decode($resp, TRUE);
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function countNews() {
+    $resp = $this->esnApi->apiGetNews();
+    return count(json_decode($resp, TRUE));
+  }
 }

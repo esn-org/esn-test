@@ -9,4 +9,14 @@ use EsnTest\Controller\EsnFetcher;
  */
 class TestController extends EsnFetcher {
 
+  /**
+   * Returns the needed data for solving task 4.
+   *
+   * @return 
+   *   The data you decide to return.
+   */
+  public function getData() {
+    
+    return ;
+  }
 }

@@ -12,10 +12,11 @@ use EsnTest\TestController;
 global $_twig;
 
 $testController = new TestController();
-/* Replace code here (if needed). */
-
-$output_test = $testController->render();
 
 /* End of area code can be replaced. */
 // Render our view.
-echo $_twig->render('block.twig', ['output_t4' => $output_test]);
+echo $_twig->render('blocks_solution.twig', [
+  'data_t2' => $testController->getNews(),
+  'data_t4' => $testController->getData(),
+  'num_articles' => $testController->countNews(),
+]);
