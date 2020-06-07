@@ -4,10 +4,9 @@
  * @file
  * Autoload files using bootstap autoloader.
  */
+use EsnTest\TestController;
 
 require_once 'bootstrap.php';
-
-use EsnTest\TestController;
 
 global $_twig;
 
