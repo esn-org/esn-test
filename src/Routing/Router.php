@@ -38,14 +38,9 @@ class Router {
         $callable = explode('::', $action);
         $arguments = explode('/', $params[0]);
         call_user_func_array([new $callable[0], $callable[1]], $arguments);
+        return; 
       }
     }
     call_user_func_array($this->notFound, [$request_uri]);
   }
-
-  private function startsWith($haystack, $needle){
-    $length = strlen($needle);
-    return (substr($haystack, 0, $length) === $needle);
-  }
-
 }

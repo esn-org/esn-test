@@ -2,13 +2,12 @@
 
 namespace EsnTest\Views;
 
-use EsnTest\Controller\AbstractController;
 use EsnTest\TestController;
 
 /**
  * Class EsnApi.
  */
-class Foo extends AbstractController {
+class Foo extends AbstractView {
 
   public function index($arguments) {
 

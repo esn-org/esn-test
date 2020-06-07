@@ -1,11 +1,11 @@
 <?php
 
-namespace EsnTest\Controller;
+namespace EsnTest\Views;
 
 /**
  * Class EsnApi.
  */
-class AbstractController {
+class AbstractView {
 
   public $twig;
   
