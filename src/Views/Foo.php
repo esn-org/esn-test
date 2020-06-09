@@ -13,6 +13,8 @@ class Foo extends AbstractView {
    * Returns the needed data for solving task 4.
    *
    * @route("foo")
+   *
+   * @alias("news")
    */
   public function index($arguments) {
 
@@ -28,7 +30,8 @@ class Foo extends AbstractView {
    *
    * @route("foo/{slug}")
    */
-  public function foo() {
+  public function foo($arguments) {
   
+    print_r($arguments);
   }
 }

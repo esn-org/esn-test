@@ -7,9 +7,16 @@ namespace EsnTest\Views;
  */
 class AbstractView {
 
-  public $twig;
+  /**
+   * Twig loader.
+   *
+   * @var \Twig\Environment
+   */
+  private $twig;
   
-
+  /**
+   * Constructor.
+   */
   public function __construct(){
     
     global $_twig;
@@ -17,8 +24,15 @@ class AbstractView {
     $this->twig = $_twig;
   }
 
-
-  public final function render($template, $variables) {
+  /**
+   * Renders the twig template with certain variables.
+   *
+   * @param string $template
+   *   The route that will be added to be loaded.
+   * @param array $action
+   *   The method within the class that will be executed.
+   */
+  public final function render($template, $variables = []) {
 
     echo $this->twig->render($template, $variables);
   }

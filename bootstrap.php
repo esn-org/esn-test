@@ -4,7 +4,6 @@
  * @file
  * Bootstrap loader for Twig environment and composer classes.
  */
-
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
@@ -22,5 +21,6 @@ else {
 $twigLoader = new FilesystemLoader('templates/');
 // Instantiate our Twig.
 $_twig = new Environment($twigLoader, ['debug' => true, 'cache' => false, 'auto_reload' => true]);
+// Add extra extensions, global twig variables, etc.
 $_twig->addExtension(new DebugExtension());
 $_twig->addGlobal('site_url', $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER['SERVER_NAME'] . dirname($_SERVER["PHP_SELF"]));
