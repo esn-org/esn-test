@@ -13,6 +13,11 @@ class Router {
     };
   }
 
+  public function getRoutes() {
+
+    return $this->routes;
+  }
+
   public function add($url, $action){
 
     $this->routes[$url] = $action;

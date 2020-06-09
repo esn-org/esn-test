@@ -3,7 +3,7 @@
 namespace EsnTest\Views;
 
 /**
- * Class EsnApi.
+ * Class AbstractView.
  */
 class AbstractView {
 
@@ -18,7 +18,7 @@ class AbstractView {
   }
 
 
-  public function render($template, $variables) {
+  public final function render($template, $variables) {
 
     echo $this->twig->render($template, $variables);
   }
