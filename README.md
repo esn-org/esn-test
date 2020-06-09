@@ -5,7 +5,22 @@ developers or our current ITcom members and see how they solve some
 basic html and php task, how they manage to face the code by reading
 the provided documentation and existing functions and evaluate their
 coding skills and use of coding standards (we follow Drupal standards).
-If you want to test it, you can fork it to your own github.
 
-After forking it, clone it into your dev environment and initialize it;
-loading the index page in your browser will reveal the rest of the instructions.
+But anyone can clone this repo and start it, there is no limitation.
+
+## Requirements
+This test has been done with pure php code, not by using frameworks or docker.
+You just need PHP7.2 and composer.
+The test has been tested in a XAMPP environment, and so far, works fine.
+
+## Feedback
+Do you have any feedback? *You can suggest it by opening an issue*
+
+## Support and contributions
+Did you enjoy the test? Do you want to support our organisation? 
+Feel free to [donate](https://donorbox.org/erasmus-student-network)
+
+Are you a student? You are wellcome to join [ESN](https://esn.org)
+
+## Do you want to use it?
+Please leave the credits in the footer of the test.
