@@ -18,7 +18,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">WebDev Simple Test</a>
+        <a class="navbar-brand" href="{{ site_url }}">WebDev Simple Test</a>
       </div>
     </nav>
     <!-- Page Content -->
@@ -26,7 +26,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
-            {% block welcome %}
+            {% block content %}
             {% endblock %}
           </div>
         </div>

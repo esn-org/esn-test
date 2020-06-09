@@ -10,7 +10,7 @@ use EsnTest\Controller\EsnFetcher;
 class TestController extends EsnFetcher {
 
   /**
-   * Returns the needed data for solving task 4.
+   * Returns the needed data for solving task 3.
    *
    * @return 
    *   The data you decide to return.
