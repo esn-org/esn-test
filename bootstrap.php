@@ -17,6 +17,9 @@ else {
   die();
 }
 
+// Disable OPcache or other internal caches that might be enabled.
+opcache_reset();
+
 // Specify our Twig templates location.
 $twigLoader = new FilesystemLoader('templates/');
 // Instantiate our Twig.

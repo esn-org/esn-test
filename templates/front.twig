@@ -142,9 +142,7 @@
 
       <div class="hints alert alert-warning" role="alert">
         <div>
-          It might happen that the route you have set does not load automatically (and you get a 404).
-          Is because the PHP cache. Might take a few secs to work.
-          If not, you can refresh the browser cache or try with anonymouse session.
+          Although this test disables the internal PHP caches, it might happen that the route you have set does not load automatically (and you get a 404). If that is the case, check in your <code>php.ini</code> if opcache is enabled and have some cache set (e.g: opcache.revalidate_freq).
         </div>
       </div>
 
