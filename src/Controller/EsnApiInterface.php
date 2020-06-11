@@ -14,8 +14,8 @@ interface EsnApiInterface {
    *   The endpoint of the API we will perform the request to.
    *   Available $endpoint values: 'countries', 'sections'.
    *
-   * @return JSON
-   *   The response of the API call, in a JSON format.
+   * @return string
+   *   The JSON response gotten from curl_exec(), to be decoded later.
    */
   public function apiGetRequest($endpoint);
 
@@ -23,8 +23,19 @@ interface EsnApiInterface {
    * Does a GET request to the API to fetch some news.
    *
    * @return JSON
-   *   The response of the API call, in a JSON format.
+   *   The JSON response gotten from curl_exec(), to be decoded later.
    */
   public function apiGetNews();
+
+  /**
+   * Does a GET request to the API to fetch data from a ESNcard.
+   *
+   * @param string $card_number 
+   *   The card to check via the API.
+   *
+   * @return array
+   *   The JSON response gotten from curl_exec(), to be decoded later.
+   */
+  public function apiGetCard($card_number);
 
 }

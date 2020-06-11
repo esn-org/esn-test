@@ -15,7 +15,12 @@
  *   - text: long text with the HTML of the article.
  *   - images: array of images. Can be empty.
  * - data_t4: The variable for the block solution_accordion. This variable depends
- *   on the value returned in the function getData() inside the TestController class.
+ *   on the value returned in the function getDataT4() inside the TestController class.
+ *   - If you have returned a string, data_t4 will be a string.
+ *   - If you have returned an array, data_t4 will be a twig array containing all the
+ *     keys as elements.
+ * - data_t5: The variable for the block solution_table. This variable depends
+ *   on the value returned in the function getDataT5() inside the TestController class.
  *   - If you have returned a string, data_t4 will be a string.
  *   - If you have returned an array, data_t4 will be a twig array containing all the
  *     keys as elements.
@@ -39,8 +44,20 @@
 
 {% endblock %}
 
-{# This is the block for the solution of task 3 #}
+{# This is the block for the solution of task 4 #}
 {% block solution_accordion %}
+  {# 
+  /**
+   * parent() is only needed to show some temporal html. 
+   * Your solution does not require its use and you can delete it.
+   */
+  #}
+  {{ parent() }}
+
+{% endblock %}
+
+{# This is the block for the solution of task 5 #}
+{% block solution_table %}
   {# 
   /**
    * parent() is only needed to show some temporal html. 

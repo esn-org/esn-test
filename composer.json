@@ -11,7 +11,8 @@
   "require": {
     "php": ">=7.2.0",
     "components/flag-icon-css": "^3.4",
-    "twig/twig": "^3.0"
+    "twig/twig": "^3.0",
+    "phpoffice/phpspreadsheet": "^1.13"
   },
   "autoload": {
     "psr-4": {
