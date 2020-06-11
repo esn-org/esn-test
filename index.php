@@ -2,20 +2,16 @@
 
 /**
  * @file
- * Autoload files using bootstap autoloader.
+ * Index of our web. No need to have other indexes for other routes.
  */
-use EsnTest\TestController;
-
 require_once 'bootstrap.php';
 
-global $_twig;
+use EsnTest\Routing\RouterFetcher;
 
-$testController = new TestController();
-
-/* End of area code can be replaced. */
-// Render our view.
-echo $_twig->render('blocks_solution.twig', [
-  'data_t2' => $testController->getNews(),
-  'data_t4' => $testController->getData(),
-  'num_articles' => $testController->countNews(),
-]);
+// We just declare our router.
+$router = new RouterFetcher($_twig);
+// Set in which namespace are all the views, that will load automatically
+// each of the routes in each methods.
+$router->fetch("\EsnTest\Views");
+// And dispatch it, the router will do the rest.
+$router->dispatch();

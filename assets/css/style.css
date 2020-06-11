@@ -17,6 +17,24 @@ body {
   margin: 25px 0px;
 }
 
+.badge-easy {
+  color: #fff;
+  background-color: #28a745;
+  margin-left: 10px; 
+}
+
+.badge-medium {
+  color: #fff;
+  background-color: #ffa500;
+  margin-left: 10px; 
+}
+
+.badge-advanced {
+  color: #fff;
+  background-color: #f34e46;
+  margin-left: 10px; 
+}
+
 .tasks_group {
   margin-left: 20px;
   margin-right: 20px;

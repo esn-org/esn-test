@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * 404 template.
+ *
+ * Available variables:
+ * - request_uri: the requested uri that does not exist.
+ */
+#}
+{% extends 'base.twig' %}
+
+{% block content %}
+  <div class="tasks_container">
+    <div class="tasks_group">
+      <div class="task_header">404</div>
+      <div class="task">Page {{ request_uri }} not found.</div>
+    </div>
+  </div>
+{% endblock %}

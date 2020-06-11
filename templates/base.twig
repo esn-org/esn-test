@@ -1,3 +1,12 @@
+{#
+/**
+ * @file
+ * The base template, will be extended by page templates later.
+ *
+ * Available variables:
+ * - site_url: the base url of our page.
+ */
+#}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,16 +18,16 @@
     <title>Let's code a little bit!</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="./vendor/components/flag-icon-css/css/flag-icon.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/fontawesome.css">
+    <link rel="stylesheet" href="{{ site_url }}/vendor/components/flag-icon-css/css/flag-icon.css">
+    <link rel="stylesheet" href="{{ site_url }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ site_url }}/assets/css/fontawesome.css">
   </head>
 
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">WebDev Simple Test</a>
+        <a class="navbar-brand" href="{{ site_url }}">WebDev Simple Test</a>
       </div>
     </nav>
     <!-- Page Content -->
@@ -26,7 +35,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
-            {% block welcome %}
+            {% block content %}
             {% endblock %}
           </div>
         </div>
