@@ -20,12 +20,12 @@
       <div class="hints alert alert-primary" role="alert">
         The following libraries are already installed and ready-to-use. Information about them can be found in their respective websites:
         <ul>
-          <li><a href="https://getbootstrap.com/" target="_blank" title="bootstrap page">Bootstrap</a> (version 4.5),</li>
+          <li><a href="https://getbootstrap.com/" target="_blank" title="bootstrap page">Bootstrap</a> (version 4.5.0),</li>
           <li><a href="https://jquery.com" target="_blank" title="bootstrap page">jQuery</a> (version 3.5.1 slim),</li>
-          <li><a href="https://twig.symfony.com/" target="_blank" title="twig page">Twig</a> (version 3.0.3) with the debug enabled and the dump() function available,</li>
-          <li><a href="https://github.com/lipis/flag-icon-css" target="_blank" title="flag-icon-css github page">Flag-icon-css</a> (version 3.4.6),</li>
+          <li><a href="https://twig.symfony.com/" target="_blank" title="twig page">Twig</a> (version 3.0.4) with debug enabled and dump() function available,</li>
+          <li><a href="https://github.com/lipis/flag-icon-css" target="_blank" title="flag-icon-css github page">Flag-icon-css</a> (version 3.5.0),</li>
           <li><a href="https://fontawesome.com/" target="_blank" title="fontwawesome page">FontAwesome</a> (version 5.11.2),</li>
-          <li><a href="https://github.com/PHPOffice/PhpSpreadsheet/" target="_blank" title="Php Spreadsheet github page">PhpOffice/phpspreadsheet</a> (version 1.13).</li>
+          <li><a href="https://github.com/PHPOffice/PhpSpreadsheet/" target="_blank" title="Php Spreadsheet github page">PhpOffice/phpspreadsheet</a> (version 1.14.1).</li>
         </ul>
       </div>
       <div class="hints alert alert-success" role="alert">Read the description of each task carefully, as might contain some clues or guidance for finishing the task.</div>
@@ -51,8 +51,7 @@
       </div>
       <div class="task"><em>The optional subtasks are:</em>
         <ul>
-          <li>The preview can contain as well of the images that is available in the article.</li>
-          <li>If there is no image, show instead a placeholder from <a href="https://placeholder.com/" target="_blank">placeholder.com</a>.</li>
+          <li>The preview can contain instead one of the images available in the article (if any) or show instead a placeholder from <a href="https://placeholder.com/" target="_blank">placeholder.com</a>.</li>
         </ul>
       </div>     
 
@@ -62,7 +61,7 @@
           {% if num_articles == 0 %}
             <div><em>It seems there is an error and no articles have been fetched.</em></div>
           {% else %}
-            <div><em>There are {{ num_articles }} fetched and you can proceed with the task.</em></div>
+            <div><em>There are {{ num_articles }} articles fetched and you can proceed with the task.</em></div>
           {% endif %}
         {% endblock %}
       </div>
@@ -72,10 +71,10 @@
 
     <div class="tasks_group">
       <div class="task_header">Task 3 <span class="badge badge-medium">Medium</span></div>
-      <div class="task">We have already loaded the last 3 articles, but there is no <code>/articles</code> page that list all the articles, neither a page to read each article. Could be interesting to have one.</div>
+      <div class="task">Now we have already loaded the last 3 articles, you might have noticed there is no <code>/articles</code> page that list all the articles, neither a page to read each article. Could be interesting to have one.</div>
       <div class="task"><strong>The main tasks are:</strong>
         <ul>
-          <li>Create a new class inside the <code>src/Views</code> folder.</li>
+          <li>Create a new class file inside the <code>src/Views</code> folder that extends the existing <code>AbstractView</code>.</li>
           <li>Inside that class, create one function that will render a page with all the articles fetched, and uses the route <code>articles</code>.</li>
           <li>Inside that class, create one function that will render a page with the specific article, and uses the route <code>article/{slug}</code>.</li>
         </ul>
@@ -89,7 +88,7 @@
 
       <div class="hints alert alert-primary" role="alert">
         <div><strong>Some hints:</strong></div>
-        <div>The name you choose for the class does not matter, as the class will load automatically. Check the other classes in the <code>Views</code> folder to see how the functions are declared, as might be important. You don't need to create new controllers for this task, as all the needed ones are already created; you can use them. Parameters are passed automatically to the functions and available in the declaration of your function, matching what is written in the uri.</div>
+        <div>The name you choose for the class does not matter, as the class will load automatically. Check the Front.php inside the <code>Views</code> folder to see how the functions are declared, as might be important. You don't need to create new controllers for this task, as all the needed ones are already created; you can use them. Parameters are passed automatically to the functions and available in the declaration of your function, matching what is written in the uri.</div>
       </div>
 
       <div class="hints alert alert-warning" role="alert">
@@ -110,7 +109,7 @@
       <div class="task_header">Task 4 <span class="badge badge-advanced">Advanced</span></div>
       <div class="task">The class file <code>src/TestController.php</code> needs to be finished, as well the respective block in the twig file.</div>
       <div class="task">As you can see, that class extends an existing class, but is almost empty except for a function that returns, for now, an empty array.</div>
-      <div class="task">The extended class is in charge of fetching information belonging to ESN (countries, sections, etc.) from an API (but the returned data is a bit messy, and in several endpoints), and we want to show this information in a nice way by using again the <strong>Card component</strong> and extending its behavior to create and structure that uses the accordion format, as Bootstrap offers.</div>
+      <div class="task">The extended class is in charge of fetching information belonging to ESN (countries, sections, etc.) from an API (but the returned data is a bit messy, and in several endpoints), and we want to show this information in a nice way by using again the <strong>Card component</strong> and extend the default collapse behavior to create an accordion.</div>
       <div class="task"><em>This accordion must contain one ESN country per group item (header) and inside the panel of this group item, all of the sections belonging to this country. In the header it must appear the flag and name of the country and the number of the sections belonging to it (leaving the style of this up to the user). The list of ESN sections that belongs to that country needs to be placed inside the panel. All the panes must be collapsible and must stay closed the moment the accordion is firstly rendered.</em></div>
       <div class="task"><strong>The main tasks are:</strong>
         <ul>
