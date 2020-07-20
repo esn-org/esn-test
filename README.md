@@ -20,7 +20,7 @@ Do you have any feedback? *You can suggest it by opening an issue*
 Did you enjoy the test? Do you want to support our organisation? 
 Feel free to [donate](https://donorbox.org/erasmus-student-network)
 
-Are you a student? You are wellcome to join [ESN](https://esn.org)
+Are you a student? You are welcome to join [ESN](https://esn.org)
 
 ## Do you want to use it?
 Please leave the credits in the footer of the test.
