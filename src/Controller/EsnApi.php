@@ -15,6 +15,27 @@ class EsnApi implements EsnApiInterface {
   protected $apiUrl = 'https://accounts.esn.org/api/v1/';
 
   /**
+   * Private self method.
+   */
+  private static $instance;
+
+  /**
+   * {@inheritdoc}
+   */
+  private function __construct() {}
+
+  /**
+   * Static method to return the class initialisated. Avoids the use of new().
+   */
+  public static function getInstance() {
+    if (empty(self::$instance)) {
+      self::$instance = new self();
+    }
+
+    return self::$instance;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function apiGetRequest($endpoint) {

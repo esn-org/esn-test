@@ -12,7 +12,7 @@ class EsnFetcher implements EsnFetcherInterface {
    *
    * @var \EsnTest\Controller\EsnApiInterface
    */
-  public $esnApi = NULL;
+  private $esnApi;
 
   /**
    * Contructor.
@@ -20,7 +20,7 @@ class EsnFetcher implements EsnFetcherInterface {
   public function __construct() {
     
     // We load here the models that are needed.
-    $this->esnApi = new EsnApi();
+    $this->esnApi = EsnApi::getInstance();
   }
 
   /**
