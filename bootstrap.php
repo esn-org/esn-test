@@ -9,6 +9,7 @@ use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
 
 // Load our autoloader if the file exists.
+// Download composer and run in cmd "composer install" the composer.json and composer.lock files are ready
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
   require_once __DIR__ . '/vendor/autoload.php';
 }
@@ -18,6 +19,7 @@ else {
 }
 
 // Disable OPcache or other internal caches that might be enabled.
+// Commented out some settings in ini file, also added "zend_extension=php_opcache.dll" before [opcache] settings
 opcache_reset();
 
 // Specify our Twig templates location.
