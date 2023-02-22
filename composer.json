@@ -12,7 +12,13 @@
     "php": ">=7.2.0",
     "components/flag-icon-css": "^3.4",
     "twig/twig": "^3.0",
-    "phpoffice/phpspreadsheet": "^1.13"
+    "phpoffice/phpspreadsheet": "^1.13",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-dom": "*",
+    "ext-gd": "*",
+    "ext-mbstring": "*",
+    "ext-zip": "*"
   },
   "autoload": {
     "psr-4": {
