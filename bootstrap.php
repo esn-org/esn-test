@@ -26,4 +26,9 @@ $twigLoader = new FilesystemLoader('templates/');
 $_twig = new Environment($twigLoader, ['debug' => true, 'cache' => false, 'auto_reload' => true]);
 // Add extra extensions, global twig variables, etc.
 $_twig->addExtension(new DebugExtension());
-$_twig->addGlobal('site_url', $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER['SERVER_NAME'] . dirname($_SERVER["PHP_SELF"]));
+
+// Just in case the site_url does not finish with '/'.
+$site_url =  $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER['SERVER_NAME'] . dirname($_SERVER["PHP_SELF"]);
+$site_url = (substr($site_url, -1) === '/' ? $site_url : $site_url . '/');
+
+$_twig->addGlobal('site_url', $site_url);

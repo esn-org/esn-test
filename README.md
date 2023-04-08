@@ -26,3 +26,5 @@ Are you a student? You are welcome to join [ESN](https://esn.org)
 
 ## Do you want to use it?
 Please leave the credits in the footer of the test.
+One mail or message is also more than welcome to see this code is useful for
+other people :)
