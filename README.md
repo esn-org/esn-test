@@ -10,14 +10,16 @@ But anyone can clone this repo and start it, there is no limitation.
 
 ## Requirements
 This test has been done with pure php code, not by using frameworks or docker.
-You just need PHP7.2 and composer.
-The test has been tested in a XAMPP environment, and so far, works fine.
+You just need PHP8.1 and composer2.
+For easy-deploy & configuration, we recommend to have DDEV installed in your
+setup (MacOS, Linux, WSL, etc...).
+For XAMPP installations, all should be good if you have PHP8.1 too.
 
 ## Feedback
 Do you have any feedback? *You can suggest it by opening an issue*
 
 ## Support and contributions
-Did you enjoy the test? Do you want to support our organisation? 
+Did you enjoy the test? Do you want to support our organisation?
 Feel free to [donate](https://donorbox.org/erasmus-student-network)
 
 Are you a student? You are welcome to join [ESN](https://esn.org)

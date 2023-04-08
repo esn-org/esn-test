@@ -1,0 +1,5 @@
+#!/bin/bash
+## Description: Run any nvm command.
+## Usage: nvm [flags] [args]
+## Example: "nvm use or nvm install"
+source /etc/profile && cd /var/www/html && nvm $@
