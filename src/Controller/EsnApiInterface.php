@@ -17,25 +17,25 @@ interface EsnApiInterface {
    * @return string
    *   The JSON response gotten from curl_exec(), to be decoded later.
    */
-  public function apiGetRequest($endpoint);
+  public function apiGetRequest(string $endpoint): string;
 
   /**
    * Does a GET request to the API to fetch some news.
    *
-   * @return JSON
+   * @return string
    *   The JSON response gotten from curl_exec(), to be decoded later.
    */
-  public function apiGetNews();
+  public function apiGetNews(): string;
 
   /**
    * Does a GET request to the API to fetch data from a ESNcard.
    *
-   * @param string $card_number 
+   * @param string $card_number
    *   The card to check via the API.
    *
-   * @return array
+   * @return string
    *   The JSON response gotten from curl_exec(), to be decoded later.
    */
-  public function apiGetCard($card_number);
+  public function apiGetCard(string $card_number): string;
 
 }

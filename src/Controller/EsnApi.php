@@ -38,7 +38,7 @@ class EsnApi implements EsnApiInterface {
   /**
    * {@inheritdoc}
    */
-  public function apiGetRequest($endpoint) {
+  public function apiGetRequest(string $endpoint): string {
 
     $curl = curl_init($this->apiUrl . $endpoint);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
@@ -54,7 +54,7 @@ class EsnApi implements EsnApiInterface {
   /**
    * {@inheritdoc}
    */
-  public function apiGetNews() {
+  public function apiGetNews(): string {
 
     $curl = curl_init('https://story.esn.org/api_news.json');
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
@@ -75,13 +75,13 @@ class EsnApi implements EsnApiInterface {
   /**
    * {@inheritdoc}
    */
-  public function apiGetCard($card_number) {
+  public function apiGetCard(string $card_number): string {
     $curl = curl_init('https://esncard.org/services/1.0/card.json?code=' . $card_number);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($curl, CURLOPT_HTTPHEADER, ['Accept: application/json', 'Content-Type: application/x-www-form-urlencoded']);
     // Execute and get also the response code.
     $resp = curl_exec($curl);
-    curl_close($curl);    
+    curl_close($curl);
 
     return $resp;
   }

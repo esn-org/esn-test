@@ -13,9 +13,9 @@ class RouterFetcher extends Router {
 
   /**
    * Fetches all the routes in each method in the designated namespace.
-   * 
+   *
    * The route has to be added as annotation in the declaration of the
-   * method of each class by using the @route. 
+   * method of each class by using the @route.
    * Only public methods (that are not final) with valid annotations,
    * are considered.
    * A method can use also the @alias tag.
@@ -23,7 +23,7 @@ class RouterFetcher extends Router {
    * @param string $namespace
    *   The namespace to fetch all the classes in.
    */
-  public function fetch($namespace) {
+  public function fetch(string $namespace) {
     // We get first all the classes inside the namespace.
     $classes = $this->findRecursive($namespace);
 
@@ -34,15 +34,15 @@ class RouterFetcher extends Router {
           if ($method->isPublic() && !$method->isConstructor() && !$method->isFinal()) {
             $route = $this->getAnnotationFromMethod($method->getDocComment(), '@route');
             if ($route !== FALSE) {
-              $this->add($route, $r->name . "::" . $method->name); 
+              $this->add($route, $r->name . "::" . $method->name);
             }
             $alias = $this->getAnnotationFromMethod($method->getDocComment(), '@alias');
             if ($alias !== FALSE) {
-              $this->add($alias, $r->name . "::" . $method->name); 
-            }            
+              $this->add($alias, $r->name . "::" . $method->name);
+            }
           }
         }
-      }    
+      }
     }
   }
 
@@ -51,22 +51,22 @@ class RouterFetcher extends Router {
    *
    * @param string $str
    *   The doc comment from the method.
-   * @param array $tag
+   * @param string $tag
    *   The tag we want to get.
    *
    * @return string|bool
    *   The route if written. False if ommited.
    */
-  private function getAnnotationFromMethod($str, $tag = '@route') {
+  private function getAnnotationFromMethod(string $str, string $tag = '@route') {
 
-    $matches = array();
+    $matches = [];
     preg_match('#' . $tag . '\(\"(.*?)\"\)\n#s', $str, $matches);
 
     if (isset($matches[1])) {
       return trim($matches[1]);
     }
     return FALSE;
-  } 
+  }
 
   /**
    * Find all the classes in the namespace.
@@ -77,7 +77,7 @@ class RouterFetcher extends Router {
    * @return array
    *   An array with all the classes found.
    */
-  private function findRecursive(string $namespace) {
+  private function findRecursive(string $namespace): array {
     // Get the path where the namespace is in the server.
     $namespacePath = $this->translateNamespacePath($namespace);
 
@@ -92,14 +92,15 @@ class RouterFetcher extends Router {
    *
    * @param string $template
    *   The route that will be added to be loaded.
-   * @param array $action
-   *   The method within the class that will be executed.
+   *
+   * @return string
+   *   The path.
    */
-  protected function translateNamespacePath(string $namespace) {
+  protected function translateNamespacePath(string $namespace): string {
     $rootPath = explode(DIRECTORY_SEPARATOR, __DIR__);
     // Take out the last element of the current path to have the base namespace.
     array_pop($rootPath);
-    
+
     // Explode all the namespaces
     $nsParts = explode('\\', $namespace);
     array_shift($nsParts);
@@ -118,8 +119,11 @@ class RouterFetcher extends Router {
    *   The namespace where to search the classes.
    * @param array $namespacePath
    *   The path in the server of the namespace.
+   *
+   * @return array
+   *   An array with all the classes.
    */
-  private function searchClasses(string $namespace, string $namespacePath) {
+  private function searchClasses(string $namespace, string $namespacePath): array {
     $classes = [];
 
     $iterator = new RecursiveIteratorIterator(
@@ -131,7 +135,7 @@ class RouterFetcher extends Router {
     * @var \SplFileInfo $item
     */
     foreach ($iterator as $item) {
-      
+
       if ($item->isDir()) {
         $nextPath = $iterator->current()->getPathname();
         $nextNamespace = $namespace . '\\' . $item->getFilename();

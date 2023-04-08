@@ -13,12 +13,12 @@ class AbstractView {
    * @var \Twig\Environment
    */
   private $twig;
-  
+
   /**
    * Constructor.
    */
   public function __construct(){
-    
+
     global $_twig;
 
     $this->twig = $_twig;
@@ -32,7 +32,7 @@ class AbstractView {
    * @param array $action
    *   The method within the class that will be executed.
    */
-  public final function render($template, $variables = []) {
+  public final function render(string $template, array $variables = []) {
 
     echo $this->twig->render($template, $variables);
   }

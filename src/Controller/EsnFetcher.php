@@ -18,7 +18,7 @@ class EsnFetcher implements EsnFetcherInterface {
    * Contructor.
    */
   public function __construct() {
-    
+
     // We load here the models that are needed.
     $this->esnApi = EsnApi::getInstance();
   }
@@ -26,8 +26,8 @@ class EsnFetcher implements EsnFetcherInterface {
   /**
    * {@inheritdoc}
    */
-  public function getRequest($endpoint) {
-    
+  public function getRequest(string $endpoint): string {
+
     $resp = $this->esnApi->apiGetRequest($endpoint);
     return $resp;
   }
@@ -35,8 +35,8 @@ class EsnFetcher implements EsnFetcherInterface {
   /**
    * {@inheritdoc}
    */
-  public function getNews() {
-    
+  public function getNews(): array {
+
     $resp = $this->esnApi->apiGetNews();
     return json_decode($resp, TRUE);
   }
@@ -44,8 +44,8 @@ class EsnFetcher implements EsnFetcherInterface {
   /**
    * {@inheritdoc}
    */
-  public function countNews() {
-    
+  public function countNews(): int {
+
     $resp = $this->esnApi->apiGetNews();
     return count(json_decode($resp, TRUE));
   }
@@ -53,8 +53,8 @@ class EsnFetcher implements EsnFetcherInterface {
   /**
    * {@inheritdoc}
    */
-  public function getCardData($card) {
-    
+  public function getCardData(string $card): array {
+
     $resp = $this->esnApi->apiGetCard($card);
     $json = json_decode($resp, TRUE);
     if ($json) {
@@ -68,7 +68,7 @@ class EsnFetcher implements EsnFetcherInterface {
       ];
     }
     else {
-      
+
       return [];
     }
   }

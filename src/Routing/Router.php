@@ -38,7 +38,7 @@ class Router {
    *   An array of routes with the action (class and method) each route
    *   has to call.
    */
-  public function getRoutes() {
+  public function getRoutes(): array {
 
     return $this->routes;
   }
@@ -51,7 +51,7 @@ class Router {
    * @param string $action
    *   The method within the class that will be executed.
    */
-  public function add($url, $action){
+  public function add(string $url, string $action) {
 
     $this->routes[$url] = $action;
   }
@@ -61,7 +61,7 @@ class Router {
    *
    * If the uri does not match, executes the not found url instead.
    */
-  public function dispatch(){
+  public function dispatch() {
 
     $request_uri = str_replace(dirname($_SERVER["PHP_SELF"]), '', $_SERVER['REQUEST_URI']);
     $request_uri = substr($request_uri, 1);
@@ -90,7 +90,7 @@ class Router {
    * @param string $request_uri
    *   The requested uri that does not exist.
    */
-  private function notFound($request_uri){
+  private function notFound(string $request_uri){
 
     echo $this->twig->render('404.twig', [
       'request_uri' => $request_uri,

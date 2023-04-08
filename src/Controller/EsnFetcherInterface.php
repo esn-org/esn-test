@@ -17,15 +17,15 @@ interface EsnFetcherInterface {
    * @return string
    *   The JSON response of the API call, to be decoded into array.
    */
-  public function getRequest($endpoint);
+  public function getRequest(string $endpoint): string;
 
   /**
    * Performs a request to fetch news.
    *
-   * @return string
+   * @return array
    *   An array with the fetched articles.
    */
-  public function getNews();
+  public function getNews(): array;
 
   /**
    * Counts the number of articles fetched.
@@ -33,7 +33,7 @@ interface EsnFetcherInterface {
    * @return int
    *   The number of articles fetched.
    */
-  public function countNews();
+  public function countNews(): int;
 
   /**
    * Get information from the card requested.
@@ -43,8 +43,8 @@ interface EsnFetcherInterface {
    *
    * @return array
    *   An indexed array with the card data if exists. Empty array otherwise.
-   *   
+   *
    */
-  public function getCardData($card);
+  public function getCardData(string $card): array;
 
 }
