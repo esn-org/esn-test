@@ -31,6 +31,7 @@ class RouterFetcher extends Router {
       $r = new ReflectionClass($class);
       if (!$r->isFinal()) {
         foreach ($r->getMethods() as $key => $method) {
+
           if ($method->isPublic() && !$method->isConstructor() && !$method->isFinal()) {
             $route = $this->getAnnotationFromMethod($method->getDocComment(), '@route');
             if ($route !== FALSE) {
@@ -60,7 +61,7 @@ class RouterFetcher extends Router {
   private function getAnnotationFromMethod(string $str, string $tag = '@route') {
 
     $matches = [];
-    preg_match('#' . $tag . '\(\"(.*?)\"\)\n#s', $str, $matches);
+    preg_match('#' . $tag . '\(\"(.*?)\"\)#s', $str, $matches);
 
     if (isset($matches[1])) {
       return trim($matches[1]);

@@ -27,8 +27,10 @@ $_twig = new Environment($twigLoader, ['debug' => true, 'cache' => false, 'auto_
 // Add extra extensions, global twig variables, etc.
 $_twig->addExtension(new DebugExtension());
 
-// Just in case the site_url does not finish with '/'.
-$site_url =  $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER['SERVER_NAME'] . dirname($_SERVER["PHP_SELF"]);
-$site_url = (substr($site_url, -1) === '/' ? $site_url : $site_url . '/');
+// Just in case the site_url finishes with '/', we dont want it.
+$request_scheme = (isset($_SERVER["REQUEST_SCHEME"]) ? $_SERVER["REQUEST_SCHEME"] : 'http');
+$site_url =  $request_scheme . '://' . $_SERVER['SERVER_NAME'];
+// We remove the last '/' in case there is any.
+$site_url = (substr($site_url, -1) === '/' ? substr($site_url, 0, -1) : $site_url);
 
 $_twig->addGlobal('site_url', $site_url);
