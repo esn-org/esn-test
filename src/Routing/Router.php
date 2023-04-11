@@ -63,13 +63,12 @@ class Router {
    */
   public function dispatch() {
 
-    $request_uri = str_replace(dirname($_SERVER["PHP_SELF"]), '', $_SERVER['REQUEST_URI']);
-    $request_uri = substr($request_uri, 1);
-
+    $request_uri = $_SERVER['REQUEST_URI'];
+    
+   
     foreach ($this->routes as $url => $action) {
 
       $new_url = preg_replace('/\/{(.*?)}/', '/(.*?)', $url);
-
       if (preg_match_all('#^' . $new_url . '$#', $request_uri, $matches, PREG_PATTERN_ORDER)) {
         $matches = array_slice($matches, 1);
         $params = (!empty($matches) ? reset($matches) : []);

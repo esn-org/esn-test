@@ -40,7 +40,29 @@
    * Your solution does not require its use and you can delete it.
    */
   #}
-  {{ parent() }}
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% set count = 0 %}
+    {% for article in data_t2 %}
+      {% if count >= num_articles - 3 %}
+        <div class="col">
+          <div class="card">
+            {% if article.images | length > 0 %}
+              <img src="{{ article.images[1] }}" class="card-img-top" alt="{{ article.title }}" style="max-height: 200px;">
+            {% else %}
+              <img src="https://via.placeholder.com/200x200.png?text=No+Image" class="card-img-top" alt="No Image" style="max-height: 200px;">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ article.title }} </h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ article.date }}</h6>
+              <p class="card-text">{{ article.text[:250] | raw }}{% if article.text|length > 250 %}...{% endif %}</p>
+              <a href="/article/{{ article.slug }}" class="card-link">Go to the article</a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% set count = count + 1 %}
+    {% endfor %}
+  </div>
 
 {% endblock %}
 
@@ -52,7 +74,46 @@
    * Your solution does not require its use and you can delete it.
    */
   #}
-  {{ parent() }}
+  <div class="row g-4">
+    <div class="col-12">
+    <div id="accordion">
+      {% set count = 1 %}
+      {% for country in data_t4 %}
+        <div class="card">
+          <div class="card-header" id="heading_{{ count }}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse_{{ count }}" aria-expanded="false" aria-controls="collapse_{{ count }}">
+                        <span class="fi fi-gr"></span>
+                        <span class="flag-icon flag-icon-{{ country['cc'] | lower }}"></span>
+                        {{ country['country'] }}
+                        (sections&nbsp;{{ country['num_of_sections'] }})
+                    </button>
+                </h5>
+            </div>
+            <div id="collapse_{{ count }}" class="collapse" aria-labelledby="heading_{{ count }}" data-parent="#accordion">
+                  <div class="card-body">
+                      <ul style="list-style-type: none">
+                      {% for section in country['sections'] %}
+                        <li>
+                          {{ section['label'] }}
+                          ({{ section['code'] }} 
+                          {% if section['website'] is not empty %}
+                          <a href="{{ section['website'] }}" target="_blank">
+                            <i class="fa fa-link"></i>
+                          </a>
+                          {% endif %}
+                          )
+                        </li>
+                      {% endfor %}
+                      </ul>
+                  </div>
+            </div>
+        </div>
+        {% set count = count + 1 %}
+      {% endfor %}
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
 

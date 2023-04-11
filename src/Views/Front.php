@@ -16,7 +16,7 @@ class Front extends AbstractView {
   /**
    * Frontpage view.
    *
-   * @route("")
+   * @route("/")
    *
    * @alias("front")
    */

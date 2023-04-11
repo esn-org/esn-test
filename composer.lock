@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0d4a1e3d37d161e770dd9467a8267af",
+    "content-hash": "d65f763e6fa48b8308d9ca85846c4501",
     "packages": [
         {
             "name": "components/flag-icon-css",
@@ -922,7 +922,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2.0",
+        "php": ">=8.1",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-dom": "*",

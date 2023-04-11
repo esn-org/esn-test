@@ -1,0 +1,19 @@
+{% extends 'front.twig' %}
+
+{% block content %}
+  <h1>{{ article.title }}</h1>
+
+  <p>{{ article.date }}</p>
+  <p>{{ article.location }}</p>
+  <p>{{ article.text|raw }}</p>
+  
+  {% if article.images|length > 0 %}
+    <div class="row">
+      {% for image in article.images %}
+        <div class="col-6 col-md-4">
+          <img src="{{ image }}" alt="{{ article.slug }}" class="img-fluid">
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endblock %}
