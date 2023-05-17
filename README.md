@@ -34,6 +34,10 @@ you can proceed to install DDEV as stated in [its documentation page](https://dd
 on the OS of your computer.
 Once you have finished, you should have almost everything for start developing on this project
 
+### DDEV and composer
+DDEV provides a built-in command to simplify use of PHP’s dependency manager, Composer, without requiring it to be installed on the host machine. Generally, executing any Composer command through DDEV is as simple as prepending the command with ddev.
+If you have any question, you can read more about in in the [DDEV documentation page](https://ddev.readthedocs.io/en/stable/users/usage/developer-tools/#ddev-and-composer).
+
 **Please read the additional instructions of DDEV related to Firefox or certificates, as you might have some issues
 if you use that browser.**
 
