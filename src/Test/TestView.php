@@ -6,21 +6,26 @@ use EsnTest\Test\TestController;
 use EsnTest\Views\AbstractView;
 
 /**
- * Class Front.
+ * Class to render any route defined by the annotation of each function.
  *
- * By extending this class from AbstractView, we have available the
- * render() method, that will load the desired twig template with the
- * variables needed.
+ * - The route defined in the annotation does not need to start with '/'.
+ * - Use $this->render() method to render a given template and its variables,
+ *   as per defined in the definition of the function or in the example.
+ *
+ * @category("views")
  */
-class Front extends AbstractView {
+final class TestView extends AbstractView {
 
   /**
    * Frontpage view.
    *
+   * Renders the frontpage template used for the explanation and part of the
+   * test to perform.
+   *
    * @route("")
    * @alias("front")
    */
-  public function index() {
+  public function front() {
     // We call our test controller for the data we need later in twig.
     $testController = new TestController();
 

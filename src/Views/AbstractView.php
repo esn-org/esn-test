@@ -5,7 +5,7 @@ namespace EsnTest\Views;
 use Twig\Environment;
 
 /**
- * Class AbstractView.
+ * Class to be use as base for the classes we define.
  */
 class AbstractView {
 
@@ -17,12 +17,12 @@ class AbstractView {
   ) {}
 
   /**
-   * Renders the twig template with certain variables.
+   * Renders a given twig template with certain variables.
    *
    * @param string $template
-   *   The route that will be added to be loaded.
-   * @param array $action
-   *   The method within the class that will be executed.
+   *   The twig template used by the render when loading the route.
+   * @param array $variables
+   *   The variables (if any) that the twig template might need.
    */
   final public function render(string $template, array $variables = []) {
 

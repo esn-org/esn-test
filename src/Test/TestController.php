@@ -6,6 +6,8 @@ use EsnTest\Controller\EsnFetcher;
 
 /**
  * Class for the exercise.
+ *
+ * @category("controller")
  */
 final class TestController extends EsnFetcher {
 

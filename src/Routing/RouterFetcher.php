@@ -22,12 +22,10 @@ class RouterFetcher extends Router {
   public function fetch(string $namespace) {
     // We get first all the classes inside the namespace.
     $classes = $this->findRecursive($namespace);
-
     foreach ($classes as $class) {
       $r = new \ReflectionClass($class);
-      if (!$r->isFinal()) {
+      if ($this->getAnnotationFromMethod($r->getDocComment(), '@category') === 'views') {
         foreach ($r->getMethods() as $key => $method) {
-
           if ($method->isPublic() && !$method->isConstructor() && !$method->isFinal()) {
             $route = $this->getAnnotationFromMethod($method->getDocComment(), '@route');
             if ($route !== FALSE) {
