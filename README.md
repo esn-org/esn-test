@@ -8,38 +8,43 @@ coding skills and use of coding standards (we follow Drupal standards).
 
 But anyone can clone this repo and start it, there is no limitation.
 
-## System requirements 
+## System requirements
 
 This test is configured for the following requirements:
 
 - Webserver: Apache 2.4.7 or higher / Nginx 1.9.x or higher
-- PHP: 8.1
-- Composer: 2.5 or higher
+- PHP: 8.5
+- Composer: 2.11.2 or higher
 
 As we primarely recommend DDEV for development, all the system requirements are
 covered if you use it, as the needed configuration is already defined.
 
-### Development environment 
-In order to have a working dev environment compatible with this, the fastest and
-recommended option is to install [DDEV](https://github.com/ddev/ddev) (compatible with Windows, Linux and MacOS).
-You will also need to have docker installed in your computer, as it is required by
-DDEV. For that, we recommend [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+### Development environment
+In order to have a working dev environment compatible with the test, the fastest
+and recommended option is to install [DDEV](https://github.com/ddev/ddev),
+(compatible with Windows, Linux and MacOS).
+In the DDEV website is well documented how to install DDEV for each OS; please
+follow the documentation you will find there based on your
+You can use other setups (eg: traditional LAMP or Lando), but we recommend DDEV.
 
-In addition, for Windows only, you will need to have WSL2 installed and enabled.
-Make sure your computer is compatible with WLS before installing the rest of the programs, otherwise
-you will need to install other tools (e.g: WAMPP, or similar).
-
-Once you have WSL2 installed (you can follow this [tutorial](https://learn.microsoft.com/en-us/windows/wsl/install)),
-you can proceed to install DDEV as stated in [its documentation page](https://ddev.readthedocs.io/en/stable/) based
-on the OS of your computer.
-Once you have finished, you should have almost everything for start developing on this project
+After DDEV is installed, you can run `ddev start` for loading the containers.
 
 ### DDEV and composer
-DDEV provides a built-in command to simplify use of PHP’s dependency manager, Composer, without requiring it to be installed on the host machine. Generally, executing any Composer command through DDEV is as simple as prepending the command with ddev.
+DDEV provides a built-in command to simplify the use of PHP’s dependency
+manager: Composer, without requiring it to be installed on the host machine.
+Generally, executing any Composer command through DDEV is as simple as
+prepending `ddev` to the command, such as `ddev composer install`.
 If you have any question, you can read more about in in the [DDEV documentation page](https://ddev.readthedocs.io/en/stable/users/usage/developer-tools/#ddev-and-composer).
 
-**Please read the additional instructions of DDEV related to Firefox or certificates, as you might have some issues
-if you use that browser.**
+**Please read the additional instructions of DDEV related to Firefox
+or certificates, if you experience any issue with the browser.**
+
+## Launching the test
+Did you started the container?
+Did you run composer to install the dependencies?
+Did you open the url in the browser?
+
+If all answers are yes, the test should be accesible to you.
 
 ## Feedback
 Do you have any feedback? *You can suggest it by opening an issue*

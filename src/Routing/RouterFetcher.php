@@ -3,7 +3,7 @@
 namespace EsnTest\Routing;
 
 /**
- * Class RouterFetcher.
+ * Extends the router to fetch and define the routes the project uses.
  */
 class RouterFetcher extends Router {
 
@@ -25,7 +25,7 @@ class RouterFetcher extends Router {
     foreach ($classes as $class) {
       $r = new \ReflectionClass($class);
       if ($this->getAnnotationFromMethod($r->getDocComment(), '@category') === 'views') {
-        foreach ($r->getMethods() as $key => $method) {
+        foreach ($r->getMethods() as $method) {
           if ($method->isPublic() && !$method->isConstructor() && !$method->isFinal()) {
             $route = $this->getAnnotationFromMethod($method->getDocComment(), '@route');
             if ($route !== FALSE) {

@@ -2,7 +2,6 @@
 
 namespace EsnTest\Test;
 
-use EsnTest\Test\TestController;
 use EsnTest\Views\AbstractView;
 
 /**

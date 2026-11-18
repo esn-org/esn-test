@@ -5,7 +5,7 @@ namespace EsnTest\Routing;
 use Twig\Environment;
 
 /**
- * Class Router.
+ * Router to handle all the URLs and paths of the project.
  */
 class Router {
 
