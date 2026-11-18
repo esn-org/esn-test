@@ -2,10 +2,6 @@
 
 namespace EsnTest\Routing;
 
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
-use ReflectionClass;
-
 /**
  * Class RouterFetcher.
  */
@@ -28,7 +24,7 @@ class RouterFetcher extends Router {
     $classes = $this->findRecursive($namespace);
 
     foreach ($classes as $class) {
-      $r = new ReflectionClass($class);
+      $r = new \ReflectionClass($class);
       if (!$r->isFinal()) {
         foreach ($r->getMethods() as $key => $method) {
 
@@ -91,7 +87,7 @@ class RouterFetcher extends Router {
   /**
    * Gets the path in the server of the namespace.
    *
-   * @param string $template
+   * @param string $namespace
    *   The route that will be added to be loaded.
    *
    * @return string
@@ -102,7 +98,7 @@ class RouterFetcher extends Router {
     // Take out the last element of the current path to have the base namespace.
     array_pop($rootPath);
 
-    // Explode all the namespaces
+    // Explode all the namespaces.
     $nsParts = explode('\\', $namespace);
     array_shift($nsParts);
 
@@ -118,7 +114,7 @@ class RouterFetcher extends Router {
    *
    * @param string $namespace
    *   The namespace where to search the classes.
-   * @param array $namespacePath
+   * @param string $namespacePath
    *   The path in the server of the namespace.
    *
    * @return array
@@ -127,9 +123,9 @@ class RouterFetcher extends Router {
   private function searchClasses(string $namespace, string $namespacePath): array {
     $classes = [];
 
-    $iterator = new RecursiveIteratorIterator(
-      new RecursiveDirectoryIterator($namespacePath, RecursiveDirectoryIterator::SKIP_DOTS),
-      RecursiveIteratorIterator::SELF_FIRST
+    $iterator = new \RecursiveIteratorIterator(
+      new \RecursiveDirectoryIterator($namespacePath, \RecursiveDirectoryIterator::SKIP_DOTS),
+      \RecursiveIteratorIterator::SELF_FIRST
     );
     /**
     * @var \RecursiveDirectoryIterator $iterator
@@ -154,4 +150,5 @@ class RouterFetcher extends Router {
 
     return $classes;
   }
+
 }

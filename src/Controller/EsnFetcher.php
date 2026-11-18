@@ -3,7 +3,7 @@
 namespace EsnTest\Controller;
 
 /**
- * Class EsnFetcher.
+ * Class to fetch data from the APIs.
  */
 class EsnFetcher implements EsnFetcherInterface {
 
@@ -38,7 +38,7 @@ class EsnFetcher implements EsnFetcherInterface {
   public function getNews(): array {
 
     $resp = $this->esnApi->apiGetNews();
-    return json_decode($resp, TRUE);
+    return json_decode($resp, TRUE) ?? [];
   }
 
   /**
@@ -46,8 +46,8 @@ class EsnFetcher implements EsnFetcherInterface {
    */
   public function countNews(): int {
 
-    $resp = $this->esnApi->apiGetNews();
-    return count(json_decode($resp, TRUE));
+    $resp = $this->getNews();
+    return count($resp);
   }
 
   /**
@@ -72,4 +72,5 @@ class EsnFetcher implements EsnFetcherInterface {
       return [];
     }
   }
+
 }

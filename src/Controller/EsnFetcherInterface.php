@@ -3,7 +3,7 @@
 namespace EsnTest\Controller;
 
 /**
- * Interface EsnFetcherInterface.
+ * Interface for class EsnFetcher.
  */
 interface EsnFetcherInterface {
 
@@ -43,7 +43,6 @@ interface EsnFetcherInterface {
    *
    * @return array
    *   An indexed array with the card data if exists. Empty array otherwise.
-   *
    */
   public function getCardData(string $card): array;
 

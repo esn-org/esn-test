@@ -4,51 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "78252282c07fd7170eb1d9ea663e5566",
+    "content-hash": "97397c4fb3bd42e3362ceecd4ee62697",
     "packages": [
-        {
-            "name": "components/flag-icon-css",
-            "version": "3.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/lipis/flag-icon-css.git",
-                "reference": "5141384c57972b0b08fc3bb67bea297321fbd799"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/lipis/flag-icon-css/zipball/5141384c57972b0b08fc3bb67bea297321fbd799",
-                "reference": "5141384c57972b0b08fc3bb67bea297321fbd799",
-                "shasum": ""
-            },
-            "type": "component",
-            "extra": {
-                "component": {
-                    "name": "flag-icon-css",
-                    "files": [
-                        "less/**",
-                        "css/**",
-                        "flags/**"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Panayiotis Lipiridis (Lipis)",
-                    "email": "lipiridis@gmail.com"
-                }
-            ],
-            "description": "CSS for vector based country flags",
-            "support": {
-                "issues": "https://github.com/lipis/flag-icon-css/issues",
-                "source": "https://github.com/lipis/flag-icon-css/tree/3.5.0"
-            },
-            "time": "2020-06-10T11:53:19+00:00",
-            "published-time": "2020-06-12T17:27:11+00:00"
-        },
         {
             "name": "composer/pcre",
             "version": "3.4.0",
@@ -336,6 +293,48 @@
             },
             "time": "2026-09-15T15:42:51+00:00",
             "published-time": "2026-09-15T15:42:56+00:00"
+        },
+        {
+            "name": "lipis/flag-icons",
+            "version": "v7.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lipis/flag-icons.git",
+                "reference": "0d8909b00aa8418802a5abf2afa82356b129a7ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lipis/flag-icons/zipball/0d8909b00aa8418802a5abf2afa82356b129a7ef",
+                "reference": "0d8909b00aa8418802a5abf2afa82356b129a7ef",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Panayiotis Lipiridis",
+                    "email": "lipiridis@gmail.com",
+                    "role": "Lead"
+                }
+            ],
+            "description": "A curated collection of all country flags in SVG — plus the CSS for easier integration.",
+            "homepage": "https://flagicons.lipis.dev",
+            "keywords": [
+                "country",
+                "country-flags",
+                "css",
+                "icon-css",
+                "svg"
+            ],
+            "support": {
+                "issues": "https://github.com/lipis/flag-icons/issues",
+                "source": "https://github.com/lipis/flag-icons/tree/v7.6.0"
+            },
+            "time": "2026-10-15T22:34:55+00:00",
+            "published-time": "2026-10-22T09:29:04+00:00"
         },
         {
             "name": "maennchen/zipstream-php",

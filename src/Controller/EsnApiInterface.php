@@ -3,7 +3,7 @@
 namespace EsnTest\Controller;
 
 /**
- * Interface EsnApiInterface.
+ * Interface for class EsnApi.
  */
 interface EsnApiInterface {
 

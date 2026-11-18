@@ -17,19 +17,11 @@ class Router {
   private $routes = [];
 
   /**
-   * Twig loader.
-   *
-   * @var \Twig\Environment
-   */
-  private $twig;
-
-  /**
    * Constructor.
    */
-  public function __construct(Environment $_twig){
-
-    $this->twig = $_twig;
-  }
+  public function __construct(
+    private Environment $twig,
+  ) {}
 
   /**
    * Return all the routes we have fetched from the namespace specified.
@@ -76,7 +68,7 @@ class Router {
         $callable = explode('::', $action);
         $arguments = (!empty($params) ? explode('/', $params[0]) : []);
 
-        call_user_func_array([new $callable[0], $callable[1]], $arguments);
+        call_user_func_array([new $callable[0]($this->twig), $callable[1]], $arguments);
         return;
       }
     }
@@ -89,10 +81,11 @@ class Router {
    * @param string $request_uri
    *   The requested uri that does not exist.
    */
-  private function notFound(string $request_uri){
+  private function notFound(string $request_uri) {
 
-    echo $this->twig->render('404.twig', [
+    echo $this->twig->render('base/404.twig', [
       'request_uri' => $request_uri,
     ]);
   }
+
 }

@@ -7,10 +7,10 @@
  * - site_url: the base url of our page.
  */
 #}
-{% extends 'base.twig' %}
+{% extends 'base/base.twig' %}
 
 {% block content %}
-  <h1 class="mt-3">ESN Simple Web Developing test</h1>
+  <h1 class="mt-5">ESN Simple Web Developing test</h1>
 
   <div class="tasks_container">
     <div class="tasks_group">
@@ -20,18 +20,21 @@
       <div class="hints alert alert-primary" role="alert">
         The following libraries are already installed and ready-to-use. Information about them can be found in their respective websites:
         <ul>
-          <li><a href="https://getbootstrap.com/" target="_blank" title="bootstrap page">Bootstrap</a> (version 4.5.0),</li>
-          <li><a href="https://jquery.com" target="_blank" title="bootstrap page">jQuery</a> (version 3.5.1 slim),</li>
-          <li><a href="https://twig.symfony.com/" target="_blank" title="twig page">Twig</a> (version 3.0.4) with debug enabled and dump() function available,</li>
-          <li><a href="https://github.com/lipis/flag-icon-css" target="_blank" title="flag-icon-css github page">Flag-icon-css</a> (version 3.5.0),</li>
+          <li><a href="https://getbootstrap.com/" target="_blank" title="bootstrap page">Bootstrap</a> (version 5.1.3),</li>
+          <li><a href="https://twig.symfony.com/" target="_blank" title="twig page">Twig</a> (version 3.30.0) with debug enabled and dump() function available,</li>
+          <li><a href="https://github.com/lipis/flag-icon-css" target="_blank" title="flag-icon-css github page">Flag-icon-css</a> (version 7.6.0),</li>
           <li><a href="https://fontawesome.com/" target="_blank" title="fontwawesome page">FontAwesome</a> (version 5.11.2),</li>
-          <li><a href="https://github.com/PHPOffice/PhpSpreadsheet/" target="_blank" title="Php Spreadsheet github page">PhpOffice/phpspreadsheet</a> (version 1.14.1).</li>
+          <li><a href="https://github.com/PHPOffice/PhpSpreadsheet/" target="_blank" title="Php Spreadsheet github page">PhpOffice/phpspreadsheet</a> (version 1.30.8).</li>
         </ul>
       </div>
-      <div class="hints alert alert-success" role="alert">Read the description of each task carefully, as might contain some clues or guidance for finishing the task.</div>
-      <div class="hints alert alert-success" role="alert">Following coding standards (PHP or even Drupal ones) will be highly valued, as well readability and cleaninness of the code and number of lines used.</div>
-      <div class="hints alert alert-success" role="alert">The result of each task will be displayed right after the task description and before the next one. Cache is disabled, so the output should appear automatically each time the page is refreshed.</div>
-      <div class="hints alert alert-success" role="alert">In order to finish the task, the <strong>main</strong> goal is required. Finishing the optional subtasks are not mandatory but recommended.</div>
+      <div class="hints alert alert-success" role="alert">
+        <ul>
+          <li>Read the description of each task carefully, as might contain some clues or guidance for finishing the task.</li>
+          <li>Following coding standards (PHP or even Drupal ones) will be highly valued, as well readability and cleaninness of the code and number of lines used.</li>
+          <li>The result of each task will be displayed right after the task description and before the next one. Cache is disabled, so the output should appear automatically each time the page is refreshed.</li>
+          <li>In order to finish the task, the <strong>main</strong> goal is required. Finishing the optional subtasks are not mandatory but recommended.</li>
+        </ul>
+      </div>
       <div class="hints alert alert-warning" role="alert">Each task tells you which file needs to be edited or created. Any other existing file must not be edited, but in some tasks it is mentioned to take a look to some files as might be interesting for finalizing the task successfully.</div>
     </div>
 
@@ -39,7 +42,7 @@
 
     <div class="tasks_group">
       <div class="task_header">Task 2 <span class="badge badge-easy">Easy</span></div>
-      <div class="task">Inside the file <code>templates/blocks_front.twig</code>, the block <code>solution_news</code> is empty right now but you need to finish it in order to solve this task.</div>
+      <div class="task">Inside the file <code>templates/test/blocks_test.twig</code>, the block <code>solution_news</code> is empty right now but you need to finish it in order to solve this task.</div>
       <div class="task">All the data needed for this task is already available in the twig file (as is mentioned in the twig file), you just need to render as will request now.</div>
       <div class="task"><strong>The main tasks are:</strong>
         <ul>
@@ -114,7 +117,7 @@
       <div class="task"><strong>The main tasks are:</strong>
         <ul>
           <li>To complete the <code>getDataT4()</code> function, returning what is needed to build the required accordion.</li>
-          <li>To finish the <code>solution_accordion</code> twig block in the file <code>templates/blocks_front.twig</code> using the returned value of the mentioned function to build the proposed accordion.</li>
+          <li>To finish the <code>solution_accordion</code> twig block in the file <code>templates/test/blocks_test.twig</code> using the returned value of the mentioned function to build the proposed accordion.</li>
           <li>There are multiple solutions to this approach, use the one that is easier for you.</li>
         </ul>
       </div>
@@ -163,7 +166,7 @@
       <div class="task"><strong>The main tasks are:</strong>
         <ul>
           <li>To complete the <code>getDataT5()</code> function, returning what is needed to build the required table.</li>
-          <li>To finish the <code>solution_table</code> twig block in the file <code>templates/blocks_front.twig</code> using the returned value of the mentioned function to build the proposed table.</li>
+          <li>To finish the <code>solution_table</code> twig block in the file <code>templates/test/blocks_test.twig</code> using the returned value of the mentioned function to build the proposed table.</li>
           <li>Each row of the table needs to have, if the card exists, the code of the card, the section code and the status. If the card does not exist, then we need to show the card with a message next to it in the table.</li>
           <li>There are multiple solutions to this approach, use the one that is easier for you.</li>
         </ul>
@@ -197,7 +200,7 @@
     <div class="tasks_group">
       <div class="task_header">Task 6 <span class="badge badge-easy">Easy</span></div>
       <div class="task">Congratulations, there are no more tasks.</div>
-      <div class="task">For those doing this test as part of the job application, please send me <code>TestController.php</code>, the <code>files created for Task 3</code> and the <code>blocks_front.twig</code> files by mail.</div>
+      <div class="task">For those doing this test as part of the job application, please send me <code>TestController.php</code>, the <code>files created for Task 3</code> and the <code>test/blocks_test.twig</code> files by mail.</div>
     </div>
   </div>
 {% endblock %}

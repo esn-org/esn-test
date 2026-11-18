@@ -3,10 +3,12 @@ html {
   position: relative;
   min-height: 100%;
 }
-
 body {
   padding-top: 54px;
   margin-bottom: 100px; /* Margin bottom by footer height */
+}
+ul {
+  margin-bottom: 0;
 }
 
 .tasks_container {
@@ -20,19 +22,19 @@ body {
 .badge-easy {
   color: #fff;
   background-color: #28a745;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 .badge-medium {
   color: #fff;
   background-color: #ffa500;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 .badge-advanced {
   color: #fff;
   background-color: #f34e46;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 .tasks_group {
@@ -108,9 +110,6 @@ body {
   font-size: 1.5em !important;
   margin-right: 5px;
 }
-
-
-
 
 @media (min-width: 992px) {
   body {

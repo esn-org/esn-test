@@ -3,7 +3,7 @@
 namespace EsnTest\Controller;
 
 /**
- * Class EsnApi.
+ * Class to handle requests to the different ESN APIs.
  */
 class EsnApi implements EsnApiInterface {
 
@@ -12,10 +12,12 @@ class EsnApi implements EsnApiInterface {
    *
    * @var string
    */
-  protected $apiUrl = 'https://accounts.esn.org/api/v1/';
+  protected $apiUrl = 'https://accounts.esn.org/api/v2/';
 
   /**
    * Private self method.
+   *
+   * @var \EsnTest\Controller\EsnApi
    */
   private static $instance;
 
@@ -58,14 +60,14 @@ class EsnApi implements EsnApiInterface {
 
     $curl = curl_init('https://story.esn.org/api_news.json');
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($curl, CURLOPT_HTTPHEADER, ['Accept: application/json', 'Content-Type: application/x-www-form-urlencoded']);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, ['Accept: application/json', 'Content-Type: application/x-www-form-urlencoded', 'x-bypass-cf:esntest-3jy2g2isj3ad']);
     // Execute and get also the response code.
     $resp = curl_exec($curl);
     // Can be the url returns a 404.
     $code = curl_getinfo($curl)['http_code'];
     curl_close($curl);
 
-    if ($code === 404){
+    if ($code === 404) {
       return json_encode([]);
     }
     // We return the JSON directly, not an Array as may be needed.
@@ -78,7 +80,7 @@ class EsnApi implements EsnApiInterface {
   public function apiGetCard(string $card_number): string {
     $curl = curl_init('https://esncard.org/services/1.0/card.json?code=' . $card_number);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($curl, CURLOPT_HTTPHEADER, ['Accept: application/json', 'Content-Type: application/x-www-form-urlencoded']);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, ['Accept: application/json', 'Content-Type: application/x-www-form-urlencoded', 'x-bypass-cf:esntest-3jy2g2isj3ad']);
     // Execute and get also the response code.
     $resp = curl_exec($curl);
     curl_close($curl);

@@ -12,6 +12,6 @@ use EsnTest\Routing\RouterFetcher;
 $router = new RouterFetcher($_twig);
 // Set in which namespace are all the views, that will load automatically
 // each of the routes in each methods.
-$router->fetch("\EsnTest\Views");
+$router->fetch("\EsnTest\Test");
 // And dispatch it, the router will do the rest.
 $router->dispatch();
