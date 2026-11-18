@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="esn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <description>Rules for coding standars used by ESN on this project</description>
+
+  <!-- Set config. -->
+  <!-- @see https://www.drupal.org/drupalorg/docs/drupal-ci/using-coderphpcs-in-drupalci#s-adding-third-party-sniffs -->
+  <arg name="extensions" value="php,inc,module,install,info,test,profile,theme"/>
+  <arg name="report" value="full"/>
+  <arg value="p"/>
+
+  <config name="drupal_core_version" value="11"/>
+
+  <file>src/</file>
+
+  <!-- Exclude third party libraries. -->
+  <exclude-pattern>./vendor</exclude-pattern>
+  <exclude-pattern>*/node_modules</exclude-pattern>
+  <!-- Exclude unsupported file types. -->
+  <exclude-pattern>*.gif</exclude-pattern>
+  <exclude-pattern>*.less</exclude-pattern>
+  <exclude-pattern>*.png</exclude-pattern>
+  <!-- Minified files don't have to comply with coding standards. -->
+  <exclude-pattern>*.min.css</exclude-pattern>
+  <exclude-pattern>*.min.js</exclude-pattern>
+
+  <rule ref="Drupal">
+    <exclude name="Drupal.Arrays.Array.LongLineDeclaration"/>
+    <!-- <exclude name="Drupal.Arrays.DisallowLongArraySyntax"/> -->
+    <exclude name="Drupal.Commenting.Deprecated.DeprecatedWrongSeeUrlFormat"/>
+    <exclude name="Drupal.Semantics.FunctionTriggerError.TriggerErrorTextLayoutRelaxed"/>
+  </rule>
+  <rule ref="DrupalPractice">
+    <exclude name="Drupal.Arrays.Array.LongLineDeclaration"/>
+    <!-- <exclude name="Drupal.Arrays.DisallowLongArraySyntax"/> -->
+    <exclude name="Drupal.Commenting.Deprecated.DeprecatedWrongSeeUrlFormat"/>
+    <exclude name="Drupal.Semantics.FunctionTriggerError.TriggerErrorTextLayoutRelaxed"/>
+  </rule>
+
+</ruleset>

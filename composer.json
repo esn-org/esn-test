@@ -9,7 +9,7 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "php": ">=8.1",
+    "php": ">=8.4",
     "components/flag-icon-css": "^3.4",
     "twig/twig": "^3.0",
     "phpoffice/phpspreadsheet": "^1.13",
@@ -18,11 +18,20 @@
     "ext-dom": "*",
     "ext-gd": "*",
     "ext-mbstring": "*",
-    "ext-zip": "*"
+    "ext-zip": "*",
+    "drupal/coder": "^9.0"
   },
   "autoload": {
     "psr-4": {
       "EsnTest\\": "src/"
+    }
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^4.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
     }
   }
 }
