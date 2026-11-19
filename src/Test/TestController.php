@@ -3,7 +3,6 @@
 namespace EsnTest\Test;
 
 use EsnTest\Controller\EsnFetcher;
-use PhpOffice\PhpSpreadsheet\IOFactory;
 
 /**
  * Class for the exercise.
