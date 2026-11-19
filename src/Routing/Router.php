@@ -20,7 +20,7 @@ class Router {
    * Constructor.
    */
   public function __construct(
-    private Environment $twig,
+    protected Environment $twig,
   ) {}
 
   /**
@@ -40,12 +40,12 @@ class Router {
    *
    * @param string $url
    *   The route that will be added to be loaded.
-   * @param string $action
+   * @param string $method
    *   The method within the class that will be executed.
    */
-  public function add(string $url, string $action) {
+  public function add(string $url, string $method) {
 
-    $this->routes[$url] = $action;
+    $this->routes[$url] = $method;
   }
 
   /**
@@ -57,7 +57,6 @@ class Router {
 
     // Remove the first '/' in the URI, as we dont need it.
     $request_uri = ltrim($_SERVER['REQUEST_URI'], dirname($_SERVER["PHP_SELF"]));
-
     foreach ($this->routes as $url => $action) {
 
       $new_url = preg_replace('/\/{(.*?)}/', '/(.*?)', $url);

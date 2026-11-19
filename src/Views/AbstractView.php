@@ -7,13 +7,13 @@ use Twig\Environment;
 /**
  * Class to be use as base for the classes we define.
  */
-class AbstractView {
+abstract class AbstractView {
 
   /**
    * Constructor.
    */
   public function __construct(
-    private Environment $twig,
+    protected Environment $twig,
   ) {}
 
   /**

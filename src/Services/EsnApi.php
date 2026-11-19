@@ -1,6 +1,6 @@
 <?php
 
-namespace EsnTest\Controller;
+namespace EsnTest\Services;
 
 /**
  * Class to handle requests to the different ESN APIs.
@@ -17,14 +17,9 @@ class EsnApi implements EsnApiInterface {
   /**
    * Private self method.
    *
-   * @var \EsnTest\Controller\EsnApi
+   * @var \EsnTest\Services\EsnApiInterface
    */
-  private static $instance;
-
-  /**
-   * {@inheritdoc}
-   */
-  private function __construct() {}
+  protected static $instance;
 
   /**
    * Static method to return the class initialisated. Avoids the use of new().

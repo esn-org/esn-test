@@ -1,6 +1,6 @@
 <?php
 
-namespace EsnTest\Controller;
+namespace EsnTest\Services;
 
 /**
  * Interface for class EsnApi.

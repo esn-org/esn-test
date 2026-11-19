@@ -2,6 +2,9 @@
 
 namespace EsnTest\Controller;
 
+use EsnTest\Services\EsnApi;
+use EsnTest\Services\EsnApiInterface;
+
 /**
  * Class to fetch data from the APIs.
  */
@@ -9,10 +12,8 @@ class EsnFetcher implements EsnFetcherInterface {
 
   /**
    * EsnApi object.
-   *
-   * @var \EsnTest\Controller\EsnApiInterface
    */
-  private $esnApi;
+  protected EsnApiInterface $esnApi;
 
   /**
    * Contructor.
@@ -35,7 +36,7 @@ class EsnFetcher implements EsnFetcherInterface {
   /**
    * {@inheritdoc}
    */
-  public function getNews(): array {
+  public function getArticles(): array {
 
     $resp = $this->esnApi->apiGetNews();
     return json_decode($resp, TRUE) ?? [];
@@ -44,9 +45,18 @@ class EsnFetcher implements EsnFetcherInterface {
   /**
    * {@inheritdoc}
    */
-  public function countNews(): int {
+  public function getArticlebyId(int $id): array {
 
-    $resp = $this->getNews();
+    $articles = $this->getArticles();
+    return $this->findEntry($articles, 'id', (string) $id);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function countArticles(): int {
+
+    $resp = $this->getArticles();
     return count($resp);
   }
 
@@ -71,6 +81,25 @@ class EsnFetcher implements EsnFetcherInterface {
 
       return [];
     }
+  }
+
+  /**
+   * Search on a given array if a certain field matches with the given value.
+   *
+   * @param array $array
+   *   The array to search into.
+   * @param string $field
+   *   The key of the field where to see if the value matches.
+   * @param string $value
+   *   The value that needs to exist in the array under the field given.
+   *
+   * @return array
+   *   The array entry founded; empty otherwise.
+   */
+  protected function findEntry(array $array, string $field, string $value): array{
+    $key = array_search($value, array_column($array, $field));
+
+    return $key !== false ? $array[$key] : [];
   }
 
 }

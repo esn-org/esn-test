@@ -25,7 +25,7 @@ interface EsnFetcherInterface {
    * @return array
    *   An array with the fetched articles.
    */
-  public function getNews(): array;
+  public function getArticles(): array;
 
   /**
    * Counts the number of articles fetched.
@@ -33,7 +33,7 @@ interface EsnFetcherInterface {
    * @return int
    *   The number of articles fetched.
    */
-  public function countNews(): int;
+  public function countArticles(): int;
 
   /**
    * Get information from the card requested.
