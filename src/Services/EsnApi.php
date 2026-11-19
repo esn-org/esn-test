@@ -8,13 +8,6 @@ namespace EsnTest\Services;
 class EsnApi implements EsnApiInterface {
 
   /**
-   * API url.
-   *
-   * @var string
-   */
-  protected $apiUrl = 'https://accounts.esn.org/api/v2/';
-
-  /**
    * Private self method.
    *
    * @var \EsnTest\Services\EsnApiInterface
@@ -37,7 +30,7 @@ class EsnApi implements EsnApiInterface {
    */
   public function apiGetRequest(string $endpoint): string {
 
-    $curl = curl_init($this->apiUrl . $endpoint);
+    $curl = curl_init('https://accounts.esn.org/api/v3/' . $endpoint);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($curl, CURLOPT_HTTPHEADER, ['Accept: application/json', 'Content-Type: application/x-www-form-urlencoded']);
     // Execute and get also the response code.

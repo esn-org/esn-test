@@ -3,10 +3,10 @@
  * @file
  * Default template with the blocksfor the solution of the test.
  *
- * Available variables (needed for the test):
- * - data_t2: The variable for the block solution_news. This variable contains a list
+ * Available variables:
+ * - articles: The variable for the block solution_news. This variable contains a list
  *   of articles from a JSON format that needs to be rendered as requested.
- *   Each item inside data_t2 contains the following content:
+ *   Each item inside articles contains the following content:
  *   - id: the id of the article.
  *   - date: the date of the article.
  *   - title: the title of the article.
@@ -24,9 +24,7 @@
  *   - If you have returned a string, data_t4 will be a string.
  *   - If you have returned an array, data_t4 will be a twig array containing all the
  *     keys as elements.
- *
- * Other variables availables:
- * - num_articles: The number of articles loaded and available in data_t2.
+ * - num_articles: The number of articles loaded and available in articles.
  * And any other variable from the parent templates.
  */
 #}

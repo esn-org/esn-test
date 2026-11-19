@@ -42,30 +42,34 @@
 
     <div class="tasks_group">
       <div class="task_header">Task 2 <span class="badge badge-easy">Easy</span></div>
-      <div class="task">Inside the file <code>templates/test/blocks_test.twig</code>, the block <code>solution_news</code> is empty right now but you need to finish it in order to solve this task.</div>
-      <div class="task">All the data needed for this task is already available in the twig file (as is mentioned in the twig file), you just need to render as will request now.</div>
-      <div class="task"><strong>The main tasks are:</strong>
+      <div class="task">Your first task is to finish the code inside the block <code>solution_news</code> located in the file <code>templates/test/blocks_test.twig</code>, as right now it is empty.</div>
+      <div class="task">All the data needed for this task is already available in the twig file (as is mentioned in the header); you just need to render as required by the task.</div>
+      <div class="task"><strong>The main requirements are:</strong>
         <ul>
           <li>Using the bootstrap <strong>Card component</strong>, render a preview of the last three articles available form the list.</li>
           <li>The three articles need to appear horizontally, one next to the other, and with the proper separation in between each article.</li>
-          <li>The preview must contain the title, the date, the first 250 chars of the article followed by '...' (or just the full article if the length is less), and a 'Go to the article' link (use '#' for now).</li>
-          <li>If extra css is needed, please use the in-line 'style' HTML property. We leave the design up to you.</li>
+          <li>The preview must contain the title, the date, the first 200 chars of the article followed by '...' (or just the full article if the length is less), and a 'Read more' link (use '#' for now).</li>
+          <li>If extra css is needed, you have the <code>assets/css/test_style.css</code> file available.</li>
         </ul>
       </div>
-      <div class="task"><em>The optional subtasks are:</em>
+      <div class="task"><em>The optional requirements are:</em>
         <ul>
-          <li>The preview can contain instead one of the images available in the article (if any) or show instead a placeholder from <a href="https://placehold.co/" target="_blank">https://placehold.co/</a>.</li>
+          <li>The preview render as well the image available (if any) or a placeholder from <a href="https://placehold.co/" target="_blank">https://placehold.co/</a>.</li>
         </ul>
       </div>
 
+      {% set text_hint = (num_articles == 0
+        ? 'It seems there is an error and no articles have been fetched. Please override the getNews() function in your TestController.php file and load the local file in assets/json.'
+        : 'There are ' ~ num_articles ~ ' articles fetched and you can proceed with the task.'
+      ) %}
+      <div class="hints alert alert-primary" role="alert">
+        <div><strong>Some hints:</strong></div>
+        <div>{{ text_hint }}</div>
+      </div>
+
       <div class="solution_container">
-        <div class="solution_header">Solution to Task 2</div>
         {% block solution_news %}
-          {% if num_articles == 0 %}
-            <div><em>It seems there is an error and no articles have been fetched.</em></div>
-          {% else %}
-            <div><em>There are {{ num_articles }} articles fetched and you can proceed with the task.</em></div>
-          {% endif %}
+          <div class="solution_header">The solution for task 2 will appear here after the block is finished.</div>
         {% endblock %}
       </div>
     </div>
@@ -74,35 +78,43 @@
 
     <div class="tasks_group">
       <div class="task_header">Task 3 <span class="badge badge-medium">Medium</span></div>
-      <div class="task">Now we have already loaded the last 3 articles, you might have noticed there is no <code>/articles</code> page that list all the articles, neither a page to read each article. Could be interesting to have one.</div>
-      <div class="task"><strong>The main tasks are:</strong>
+      <div class="task">In task 2 you created a block that renders the last 3 articles, but there is no <code>/articles</code> page where you can render the full list. Could be interesting to have one.</div>
+      <div class="task"><strong>The main requirements are:</strong>
         <ul>
-          <li>Create a new class file inside the <code>src/Views</code> folder that extends the existing <code>AbstractView</code>.</li>
-          <li>Inside that class, create one function that will render a page with all the articles fetched, and uses the route <code>articles</code>.</li>
-          <li>Inside that class, create one function that will render a page with the specific article, and uses the route <code>article/{slug}</code>.</li>
+          <li>Create a first route (eg: <code>articles</code>) to render the list of all articles fetched and available. This design is up to you.</li>
+          <li>Create a second route (up to you) to render the each individual article in full based on the article ID. The design is up to you.</li>
+          <li>Update the <code>src/Test/TestView.php</code> class to add any new route(s)/method(s) that you need for the requirements.</li>
+          <li>Use the <code>src/Test/TestController.php</code> class to add any new methods you need.</li>
+          <li>Place your templates in the folder <code>templates/test</code> and for the CSS you can use the <code>assets/css/test_style.css</code> file.</li>
         </ul>
       </div>
-      <div class="task"><em>The optional subtasks are:</em>
+      <div class="task"><em>The optional requirements are:</em>
         <ul>
-          <li>If the article requested does not match an existing article, show instead a 404 page.</li>
-          <li>Alter the preview in task 2 to point each article to the respective page.</li>
+          <li>Create a last route (up to you) to render the each individual article in full based on the article slug. The code is up to you.</li>
+          <li>Redirect the user to the 404 page if the ID/slug does not find a match.</li>
+          <li>Alter the code of task 2 to include the new routes created for proper navigation at your discretion.</li>
         </ul>
       </div>
 
       <div class="hints alert alert-primary" role="alert">
         <div><strong>Some hints:</strong></div>
-        <div>The name you choose for the class does not matter, as the class will load automatically. Check the Front.php inside the <code>Views</code> folder to see how the functions are declared, as might be important. You don't need to create new controllers for this task, as all the needed ones are already created; you can use them. Parameters are passed automatically to the functions and available in the declaration of your function, matching what is written in the uri.</div>
+        <div>
+          <ul>
+            <li>For your templates, you can extend the <code>base/base.twig</code> template like the <code>front/front.twig</code> does, so you just need to override the content block and use your own variables.</li>
+            <li>You can define a route with variables such as <code>'my-route/{param}'</code> but you cannot have two different methods using the same route (excluding the variable).</li>
+            <li>Views (and routes) are loaded automatically once they are created. You can use the <code>front()</code> function in the <code>TestView.php</code> as example. Any variable needed by the route can be used in the method directly.</li>
+          </ul>
+        </div>
       </div>
-
       <div class="hints alert alert-warning" role="alert">
         <div>
-          Although this test disables the internal PHP caches, it might happen that the route you have set does not load automatically (and you get a 404). If that is the case, check in your <code>php.ini</code> if opcache is enabled and have some cache set (e.g: opcache.revalidate_freq).
+          There should be no issues with caches and DDEV but if you experience some, check how to add a custom DDEV <code>php.ini</code> to disable OPCACHE or similar.
         </div>
       </div>
 
       <div class="solution_container">
-        <div class="solution_header">Solution to Task 3</div>
-        <div>Link to the <a href="{{ site_url }}/articles" target="_blank">Articles</a> page.</div>
+        <div class="solution_header">Solution to task 3</div>
+        <div>Link <a href="{{ site_url }}/articles" title="Articles page">Articles</a> should be working after the solution is done; as well as further navigation.</div>
       </div>
     </div>
 
@@ -110,48 +122,46 @@
 
     <div class="tasks_group">
       <div class="task_header">Task 4 <span class="badge badge-advanced">Advanced</span></div>
-      <div class="task">The class file <code>src/TestController.php</code> needs to be finished, as well the respective block in the twig file.</div>
-      <div class="task">As you can see, that class extends an existing class, but is almost empty except for a function that returns, for now, an empty array.</div>
-      <div class="task">The extended class is in charge of fetching information belonging to ESN (countries, sections, etc.) from an API (but the returned data is a bit messy, and in several endpoints), and we want to show this information in a nice way by using again the <strong>Card component</strong> and extend the default collapse behavior to create an accordion.</div>
-      <div class="task"><em>This accordion must contain one ESN country per group item (header) and inside the panel of this group item, all of the sections belonging to this country. In the header it must appear the flag and name of the country and the number of the sections belonging to it (leaving the style of this up to the user). The list of ESN sections that belongs to that country needs to be placed inside the panel. All the panes must be collapsible and must stay closed the moment the accordion is firstly rendered.</em></div>
-      <div class="task"><strong>The main tasks are:</strong>
+      <div class="task">As you might have noticed while working on <code>src/Test/TestController.php</code> in the previous task, there are also a few methods that are incompleted and now it is time to finish them; however there are other functions in the class inherited that can be used for this task.</div>
+      <div class="task">We want to render all the data of countries and sections of ESN International using a bootstrap accordion. This accordion must contain <en>each ESN country per group item (header)</en> and <em>all of the sections belonging to this country in the accordion panel</em>. In the header it must appear the flag and name of the country and the number of the sections belonging to it. The list of ESN sections that belongs to that country needs to be placed inside the panel. All the panes must be collapsible and must stay closed the moment the accordion is firstly rendered.</div>
+      <div class="task"><strong>The main requirements are:</strong>
         <ul>
-          <li>To complete the <code>getDataT4()</code> function, returning what is needed to build the required accordion.</li>
-          <li>To finish the <code>solution_accordion</code> twig block in the file <code>templates/test/blocks_test.twig</code> using the returned value of the mentioned function to build the proposed accordion.</li>
+          <li>Complete the <code>getDataT4()</code> function, returning what is needed to build the required accordion in the template.</li>
+          <li>Finish the <code>block solution_accordion</code> in the file <code>templates/test/blocks_test.twig</code> using the returned value of the mentioned function to build the requested accordion, leaving the style to you.</li>
+          <li>Showcase only 15 countries in the accordion.</li>
           <li>There are multiple solutions to this approach, use the one that is easier for you.</li>
         </ul>
       </div>
-      <div class="task"><em>The optional subtasks are:</em>
+      <div class="task"><em>The optional requirements are:</em>
         <ul>
-          <li>If the section have a website, show it by using the proper font-awesome icon and opening it in a new page just after the code.</li>
-          <li>Sort the list by country name and/or by section name too.</li>
+          <li>If the section have a website, show it by using the proper FontAwesome icon and open it in a new page just after the code.</li>
+          <li>The list of countries and or sections could be sorted by name too.</li>
         </ul>
       </div>
 
       <div class="hints alert alert-primary" role="alert">
         <div><strong>Some hints:</strong></div>
         <ul>
-          <li>You can create in your class as much as functions as wanted.</li>
-          <li>The twig file loads automatically the variable, the documentation inside that file can be useful.</li>
-          <li>The file <code>src/Controller/EsnFetcher.php</code> is quite important and contain all you need. Taking a look to them can be useful.</li>
+          <li>You can check the relevant classes to see the existing functions.</li>
         </ul>
       </div>
       <div class="task"><strong>The next image can be used as a reference for the output with one panel opened (it does not include the extra tasks).</strong></div>
-      <div class="task" id="exampleAccordion" data-children=".item">
-        <div class="item">
-          <a data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion1" aria-expanded="true" aria-controls="exampleAccordion1">
-            Show Image
-          </a>
-          <div id="exampleAccordion1" class="collapse" role="tabpanel">
+      <div class="task accordion" id="exampleAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pane1" aria-expanded="false" aria-controls="pane1">
+              Show Image
+            </button>
+          </h2>
+          <div id="pane1" class="accordion-collapse collapse" data-bs-parent="#exampleAccordion">
             <img src="./assets/img/task_1.png" alt="task1 example" class="img-fluid"/>
           </div>
         </div>
       </div>
 
       <div class="solution_container">
-        <div class="solution_header">Solution to Task 4</div>
         {% block solution_accordion %}
-          <div><em>The solution will appear here once the proper file is written.</em></div>
+          <div class="solution_header">The solution for task 4 will appear here after the block is finished.</div>
         {% endblock %}
       </div>
     </div>
@@ -160,37 +170,36 @@
 
     <div class="tasks_group">
       <div class="task_header">Task 5 <span class="badge badge-advanced">Advanced</span></div>
-      <div class="task">Using the same class file from the task before, we want to get some extra information from a dataset existing in a XLSX file, that already exists in the root folder of this test.</div>
+      <div class="task">Using the same class file from the task before, we want to get some extra information from a dataset existing in a XLSX file, that already exists in the root folder of the project (codes.xlsx).</div>
       <div class="task">If you open the document, you will see a set of codes, and we want to know the status of each code. If the card exists, will return some data. On the other hand, if the card does not exist, there will be no data in the response.</div>
-      <div class="task">We would like to have a nice output of the result, by reading the XLSX file, getting the result of each card and then, displaying everything using a table (we leave the styling up to you).</div>
-      <div class="task"><strong>The main tasks are:</strong>
+      <div class="task">We would like to have a nice output of the result, by reading the XLSX file (be careful about possible headers), checking each card againts the API through the proper function available, and display all the results using a table (we leave the styling up to you).</div>
+      <div class="task"><strong>The main requirements are:</strong>
         <ul>
-          <li>To complete the <code>getDataT5()</code> function, returning what is needed to build the required table.</li>
-          <li>To finish the <code>solution_table</code> twig block in the file <code>templates/test/blocks_test.twig</code> using the returned value of the mentioned function to build the proposed table.</li>
+          <li>Complete the <code>getDataT5()</code> function, returning what is needed to build the required table.</li>
+          <li>Finish the <code>block solution_table</code> in the file <code>templates/test/blocks_test.twig</code> using the returned value of the mentioned function to build the proposed table.</li>
           <li>Each row of the table needs to have, if the card exists, the code of the card, the section code and the status. If the card does not exist, then we need to show the card with a message next to it in the table.</li>
           <li>There are multiple solutions to this approach, use the one that is easier for you.</li>
         </ul>
       </div>
-      <div class="task"><em>The optional subtasks are:</em>
+      <div class="task"><em>The optional requirements are:</em>
         <ul>
           <li>Sort the results by code.</li>
           <li>Include in the table the activation date and the expiration date as well, taking in consideration that each card is valid for a year counting from the moment it was activated.</li>
-          <li>Replace the section code with the real name of the section, in those cards that have it.</li>
+          <li>If the card contains a section code, we can add the section name as well next to it.</li>
         </ul>
       </div>
 
       <div class="hints alert alert-primary" role="alert">
         <div><strong>Some hints:</strong></div>
         <ul>
-          <li>Task 4 hints are also valid for this task.</li>
-          <li>The function needed for validating cards is already available, as in Task 4.</li>
+          <li>The PHPOffice library is already available in the vendor folder.</li>
+          <li>The hints of task 4 are also applicable to task 5.</li>
         </ul>
       </div>
 
       <div class="solution_container">
-        <div class="solution_header">Solution to Task 5</div>
         {% block solution_table %}
-          <div><em>The solution will appear here once the proper file is written.</em></div>
+          <div class="solution_header">The solution for task 5 will appear here after the block is finished.</div>
         {% endblock %}
       </div>
     </div>
@@ -200,7 +209,7 @@
     <div class="tasks_group">
       <div class="task_header">Task 6 <span class="badge badge-easy">Easy</span></div>
       <div class="task">Congratulations, there are no more tasks.</div>
-      <div class="task">For those doing this test as part of the job application, please send me <code>TestController.php</code>, the <code>files created for Task 3</code> and the <code>test/blocks_test.twig</code> files by mail.</div>
+      <div class="task">If you are doing this test as part of an assignment, please send <code>src/Test</code>, <code>assets/css/test_style.css</code> and <code>templates/test</code> files and folders to the email given to you; do not commit the results as a PR.</div>
     </div>
   </div>
 {% endblock %}

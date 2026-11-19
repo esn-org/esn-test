@@ -27,9 +27,9 @@ class EsnFetcher implements EsnFetcherInterface {
   /**
    * {@inheritdoc}
    */
-  public function getRequest(string $endpoint): string {
+  public function getEsnData(): string {
 
-    $resp = $this->esnApi->apiGetRequest($endpoint);
+    $resp = $this->esnApi->apiGetRequest('network');
     return $resp;
   }
 

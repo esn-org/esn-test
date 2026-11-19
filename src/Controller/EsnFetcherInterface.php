@@ -10,14 +10,10 @@ interface EsnFetcherInterface {
   /**
    * Performs a request to the endpoint provided to the API.
    *
-   * @param string $endpoint
-   *   The endpoint of the API we need the information from.
-   *   Available $endpoint values: 'countries', 'sections'.
-   *
    * @return string
-   *   The JSON response of the API call, to be decoded into array.
+   *   The API response as JSON; needs to be transformed to array/object.
    */
-  public function getRequest(string $endpoint): string;
+  public function getEsnData(): string;
 
   /**
    * Performs a request to fetch news.

@@ -13,7 +13,7 @@
   <div class="tasks_container">
     <div class="tasks_group">
       <div class="task_header">404</div>
-      <div class="task">Page {{ request_uri }} not found.</div>
+      <div class="task">Page <em>{{ request_uri|default('') }}</em> not found.</div>
     </div>
   </div>
 {% endblock %}
